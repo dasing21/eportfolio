@@ -1,0 +1,484 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>The Data Professional</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<!-- Note: The "styleN" class below should match that of the banner element. -->
+		<header id="header" class="alt style2">
+			<a href="index.html" class="logo"><strong>e-Portfolio</strong> <span>by Dalbir Singh</span></a>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<ul class="links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="landing.html">Landing</a></li>
+				<li><a href="generic.html">Generic</a></li>
+				<li><a href="elements.html">Elements</a></li>
+			</ul>
+			<ul class="actions stacked">
+				<li><a href="#" class="button primary fit">Get Started</a></li>
+				<li><a href="#" class="button fit">Log In</a></li>
+			</ul>
+		</nav>
+
+		<!-- Banner -->
+		<!-- Note: The "styleN" class below should match that of the header element. -->
+		<section id="banner" class="style2">
+			<div class="inner">
+				<span class="image">
+					<img src="images/pic07.jpg" alt="" />
+				</span>
+				<header class="major">
+					<h1>The Data Professional</h1>
+				</header>
+				<div class="content">
+					<p>November 2023 - February 2024</p>
+				</div>
+			</div>
+		</section>
+		<!-- Main -->
+		<div id="main">
+			<!-- Three -->
+			<section id="three">
+				<div class="inner">
+					<header>
+						<h2>Navigating Wales: A Perspective on Transportation Challenges in Wales</h2>
+					</header>
+					<p>
+					<h3>Introduction</h3> Transportation is a crucial facet of societal functionality, shaping the daily
+					lives of
+					citizens. This report seeks to provide insight into the state of transportation in Wales from a
+					citizen's standpoint, addressing key issues impacting their daily experiences. Wales, with its
+					stunning landscapes and vibrant communities, presents a unique set of challenges
+					in its transportation infrastructure. Citizens often express concerns about the accessibility
+					and reliability of public transport, particularly in rural areas where limited connectivity
+					hampers daily commutes. The reliance on personal vehicles in such regions raises environmental
+					concerns, emphasizing the need for sustainable alternatives (Welsh Government, 2022).<br><br>
+
+					Furthermore, citizens have voiced frustrations regarding traffic congestion in urban centers
+					like Cardiff and Swansea, affecting travel times and air quality (Deacon, T., 2020). The demand
+					for improved public transit options and the integration of smart technologies to alleviate
+					congestion is a common sentiment among residents. Additionally, the emphasis on sustainable and
+					eco-friendly modes of transportation, such as cycling and walking, is gaining traction among
+					citizens keen on reducing their carbon footprint. The need for comprehensive urban planning that
+					prioritizes pedestrian-friendly infrastructure and cycling lanes is evident in public discourse
+					(Waters, 2023). A holistic approach to transportation issues in Wales is imperative. Addressing
+					citizens' concerns, promoting sustainable alternatives, and enhancing public transit are crucial
+					steps towards creating a well-connected and environmentally conscious transportation system
+					(Welsh Government, 2022).<br><br>
+					</p>
+					<p>
+					<h3>Data overview</h3>
+					The dataset under consideration is the "National Survey for Wales results,
+					2013-14: Transport."
+					(Welsh Government, NST., 2014). This dataset aims to gather insights into diverse aspects,
+					including demographics, preferences, and opinions, providing a rich source of data for
+					analysis and decision-making. For this report, I have specifically chosen four of the 42
+					tables in the dataset in order to analyze based on four specific factors:<br><br>
+
+					<li>Factor 1: Feeling of safety travelling by public transport, by age (table 40)</li>
+					<li>Factor 2: Ease of getting to and from GP surgery, by age (table 30)</li>
+					<li>Factor 3: Ease of getting to and from hospital, by age (table 38)</li>
+					<li>Factor 4: Have use of a car (table 15)</li><br><br>
+
+					In table 30 and 38, the responses are divided into four answers:<br><br>
+
+					<ol>
+						<li>Very easy</li>
+						<li>Fairly easy</li>
+						<li>Fairly difficult</li>
+						<li>Very difficult</li>
+					</ol><br>
+
+					Each response is quantified with a percentage value for the respondent's age group. There are
+					<b>four age groups:</b><br><br>
+
+					<ol>
+						<li>16-24</li>
+						<li>25-44</li>
+						<li>45-64</li>
+						<li>75+</li>
+					</ol><br>
+
+					There is also a value, "Total", which is the average of the responses of the aforementioned four age
+					groups.<br><br>
+
+					In Table 40, the responses are divided into 4 different answers:<br><br>
+
+					<ol>
+						<li>Very safe</li>
+						<li>Fairly safe</li>
+						<li>Fairly unsafe</li>
+						<li>Very unsafe</li>
+					</ol><br>
+
+					The responses are quantified the same way as in aforementioned tables, table 30 and 38, - with a
+					percentage value and the same four age groups, including an average "Total".<br><br>
+					In table 15, the responses are divided into two answers:<br><br>
+
+					<ol>
+						<li>Yes</li>
+						<li>No</li>
+					</ol><br>
+
+					Each response is quantified with a percentage value, divided into three categories:<br><br>
+
+					<ol>
+						<li>Upper CI</li>
+						<li>Lower CI</li>
+					</ol><br>
+
+					There is also a third category, "Average", which represents the average of the upper and lower
+					CI.<br>
+					<br></p>
+					<p>
+					<h3>Data analysis design</h3>
+					Data reduction is a crucial step in a quantitative analysis process to enhance efficiency, reduce
+					complexity, and extract meaningful information from large and complex datasets (Al Mahdi, 2020) .
+					Therefore, for table 40, 30, and 38, I will only extract the "Total" value from each table to
+					represent the value. Similarly, in table 15, I will only extract the "Average" value.<br><br>
+
+					To illustrate these relationships visually, a Unified Modeling Language (UML) diagram has been
+					constructed (see Figure 1, Overview). The diagrams depict the factors "Have use of a car", "Feeling
+					of safety", "Ease of getting to/from GP surgery", and "Ease of getting to/from hospital". These
+					models give us a simple overview of the factors in question. Diagrams have been created using
+					draw.io. I have chosen to use Class diagrams to model the data. Modelling the static view our
+					system, it is an appropriate choice of diagram. It also describes the relationships among objects
+					(Visual Paradigm, no date).<br><br>
+
+					<h4>Figure 1: Overview</h4><br><br>
+
+					<img src="images/tdpFig1.png" width="50%" height="auto" alt="Could not load image"><br><br>
+
+					This second UML diagram, gives us the details of the four factors and the data types to be
+					analyzed:<br><br>
+
+					<h4>Figure 2: Data structure view</h4><br><br>
+					<img src="images/tdpFig2.png" width="50%" height="auto" alt="Could not load image"><br><br>
+
+					After reducing the data, we have the following information: <br><br>
+
+					<h4>Figure 3: Detail view</h4><br><br>
+					<img src="images/tdpFig3.png" width="50%" height="auto" alt="Could not load image"><br><br>
+
+					Now, let us analyze the data that we have. <br>
+					<br>
+					</p>
+					<p>
+					<h3>Analysis</h3>
+					The descriptive analysis technique is a fitting approach for examining public transport in Wales due
+					to its ability to provide a comprehensive and clear overview of the survey data. This method is
+					particularly advantageous for summarizing and interpreting the key characteristics of the dataset
+					without delving into complex statistical models, making it accessible and easily understandable for
+					a diverse audience (Indeed Editorial Team, 2022). All charts have been created using Python and the
+					Matplotlib library.<br><br>
+
+					<h4>Factor 1 - Safety perception</h4><br><br>
+					<img src="images/tdpFig4.png" width="50%" height="auto" alt="Could not load image"><br><br>
+
+					Concerns about safety, particularly during nighttime travel, were explored in factor 1. The
+					responses indicate that 34% felt very safe, 46% felt fairly safe, 15% felt fairly unsafe, and 5%
+					felt very unsafe using public transport after dark. These findings suggest a relatively positive
+					overall safety perception, although addressing the concerns of the 20% who feel either fairly or
+					very unsafe should be a priority for improving public transport services. <br><br>
+
+					<h4>Factor 2 - Ease of transportation to/from GP surgery:</h4><br><br>
+					<img src="images/tdpFig5.png" width="50%" height="auto" alt="Could not load image"><br><br>
+
+					Access to essential services, particularly healthcare facilities, is vital for public well-being.
+					For accessing GP surgeries 66% reported it as very easy, 27% as fairly easy, 5% as fairly difficult,
+					and 2% as very difficult. <br><br>
+
+					<h4>Factor 3 - Ease of transportation to/from hospital:</h4><br><br>
+					<img src="images/tdpFig6.png" width="50%" height="auto" alt="Could not load image"><br><br>
+
+					Similarly, for accessing hospital, 48% found it very easy, 34% fairly easy, 14% fairly difficult,
+					and 5% very difficult. These results highlight the overall accessibility of healthcare facilities
+					for the majority, but challenges still exist for a small percentage. Policymakers may need to focus
+					on addressing barriers faced by those finding it difficult to reach healthcare services. <br><br>
+
+					<h4>Factor 4 - Car dependency:</h4><br><br>
+					<img src="images/tdpFig7.png" width="50%" height="auto" alt="Could not load image"><br><br>
+
+					The majority of respondents, 79%, expressed a need for a car. This high percentage indicates a
+					significant reliance on personal vehicles, which may be attributed to factors such as limited public
+					transport coverage, convenience, or the perceived inadequacy of existing public transportation
+					options. This finding aligns with previous studies highlighting the challenges faced by public
+					transport systems in rural areas, such as those often found in Wales (Waters, 2023).
+					<br>
+					</p>
+					<p>
+					<h3>Data visualization</h3>
+					To visualize the data, I have used bar chart diagrams and a pie chart. The charts are descriptive of
+					the analysis and allows for a straightforward presentation of the survey results in terms of
+					percentages. This simplicity aids in conveying the main findings concisely, making it suitable for
+					policymakers, researchers, and the general public who may not necessarily have a specialized
+					background in statistics (Erkilinc, 2023).<br>
+					<br>
+					</p>
+					<p>
+					<h3>Discussion on choice of analysis design technique</h3>
+					Data analysis design techniques play a pivotal role in extracting meaningful insights from datasets.
+					This post aims to delve into the strengths and limitations of various data analysis design
+					techniques, shedding light on their diverse applications and potential pitfalls.<br>
+
+					One widely employed technique is Descriptive Statistics, providing a succinct summary of key
+					features in a dataset (Curtin University, no date). Its strength lies in simplifying complex data,
+					enabling a quick overview. However, it may oversimplify relationships and fail to uncover deeper
+					patterns. <br>
+
+					Moving to more advanced methods, Inferential Statistics enables drawing inferences about populations
+					based on sample data (Curtin University, no date). Its strength lies in generalizability, but
+					assumptions about the population may limit its accuracy. <br>
+
+					To summarize, the choice of data analysis design technique should align with the research objectives
+					and the nature of the data. A hybrid approach, combining multiple techniques, may offer a
+					comprehensive understanding while mitigating individual limitations. <br>
+					<br>
+					</p>
+					<p>
+					<h3>Possible solutions</h3>
+					To address the identified transportation challenges in Wales, several solutions can be implemented.
+					These solutions aim to enhance accessibility, reliability, and sustainability while mitigating
+					associated limitations and risks. Below are some potential strategies:<br><br>
+
+					<h4>1. Enhanced public transit infrastructure</h4> <br>
+					<ul>
+						<li>Invest in improving and expanding public transit networks, especially in rural areas where
+							connectivity is limited (Welsh Government, 2022).</li>
+						<li>Introduce new routes, increase frequency, and extend operating hours to accommodate diverse
+							travel needs and preferences (Deacon, 2020).</li>
+						<li>Implement integrated ticketing systems and real-time passenger information to enhance
+							convenience and encourage modal shift from private vehicles to public transit (Welsh
+							Government,
+							2022).</li>
+					</ul><br><br>
+
+					<h4>2. Promotion of sustainable transportation modes</h4> <br>
+					<ul>
+						<li>Encourage cycling and walking by developing dedicated infrastructure such as cycle lanes,
+							pedestrian zones, and safe crossing points (Waters, 2023).</li>
+						<li>Provide incentives for adopting eco-friendly transportation modes, such as subsidies for
+							purchasing bicycles, electric scooters, or hybrid vehicles (Welsh Government, 2022).</li>
+						<li>Promote carpooling and ridesharing initiatives to reduce the number of single-occupancy
+							vehicles
+							on the road and alleviate congestion (Deacon, 2020).</li>
+					</ul><br><br>
+
+					<h4>3. Technological integration and innovation</h4> <br>
+					<ul>
+						<li>Deploy smart transportation solutions, including traffic management systems, intelligent
+							signaling, and predictive analytics, to optimize traffic flow and reduce congestion (Welsh
+							Government, 2022).</li>
+						<li>Harness advancements in autonomous vehicles and shared mobility services to enhance mobility
+							options and improve efficiency in urban transportation (Deacon, 2020).</li>
+						<li>Foster partnerships with technology companies and research institutions to pilot innovative
+							solutions and evaluate their effectiveness in addressing transportation challenges (Welsh
+							Government, 2022).</li>
+					</ul><br><br>
+
+					<h4>4. Community engagement and participatory planning</h4> <br>
+					<ul>
+						<li>Involve citizens, community groups, and stakeholders in the decision-making process for
+							transportation planning and infrastructure development (Waters, 2023).</li>
+						<li>Conduct regular surveys, focus groups, and public consultations to gather feedback, identify
+							priorities, and ensure that transportation initiatives align with the needs and preferences
+							of the population (Welsh Government, 2022).</li>
+						<li>Encourage collaboration between local authorities, transportation agencies, and
+							environmental organizations to implement holistic and sustainable transportation solutions
+							(Deacon, 2020).</li>
+					</ul><br><br>
+					<br>
+					</p>
+					<p>
+					<h3>Risks associated with possible solutions</h3>
+					However, it is essential to acknowledge the potential limitations and risks associated with these
+					solutions:<br><br>
+					<h4>1. Financial constraints</h4> <br>
+					<ul>
+						<li>Implementing large-scale transportation projects requires significant investment, and
+							securing funding may pose a challenge, particularly in times of economic uncertainty (Welsh
+							Government, 2022).</li>
+						<li>Cover-reliance on public funding may limit the scope and pace of infrastructure development,
+							delaying the implementation of necessary improvements (Deacon, 2020).</li>
+					</ul><br><br>
+					<h4>Technical challenges</h4> <br>
+					<ul>
+						<li>Introducing new technologies and smart transportation systems may face technical hurdles
+							such as compatibility issues, cybersecurity threats, and data privacy concerns (Welsh
+							Government, 2022).</li>
+						<li>Maintaining and upgrading infrastructure to accommodate emerging technologies requires
+							ongoing investment and expertise, which may strain existing resources (Deacon, 2020).</li>
+					</ul><br><br>
+					<h4>Social and cultural factors</h4> <br>
+					<ul>
+						<li>Changing travel behavior and promoting sustainable transportation modes require cultural
+							shifts and behavior change campaigns, which may encounter resistance or skepticism from
+							certain segments of the population (Waters, 2023).</li>
+						<li>Addressing inequalities in access to transportation services and infrastructure necessitates
+							a comprehensive approach that considers socio-economic disparities and demographic
+							differences (Welsh Government, 2022).</li>
+					</ul><br>
+					<br>
+					</p>
+					<p>
+					<h3>Conclusion</h3>
+					In conclusion, overcoming transportation challenges in Wales requires a multi-faceted approach that
+					combines infrastructure investment, technological innovation, community engagement, and policy
+					intervention. While these solutions offer promising opportunities for improvement, careful
+					consideration of their limitations and associated risks is essential to ensure effective
+					implementation and long-term sustainability.<br>
+					<br>
+					</p>
+					<p>
+					<h3>References</h3>
+					<ul>
+						<li>Smith, J., Brown, A., & Davis, C. (2020). "Survey Methodology: An Overview." Sage
+							Publications.</li>
+						<li>Welsh Government. (2022). "National Transport Plan: Connecting Wales." Available at:
+							https://www.gov.wales/sites/default/files/publications/2023-02/national-transport-delivery-plan-2022to2027.pdf
+							(Accessed: 20 Jan. 2024).</li>
+						<li>Deacon, T., (2020) The worst and best times to drive in Cardiff and Swansea city centres,
+							Wales Online, Available at:
+							https://www.walesonline.co.uk/news/wales-news/cardiff-congestion-swansea-traffic-delays-17837051
+							(Accessed: 30 Jan. 2024).</li>
+						<li>Lee Waters (2023) Written Statement: Rural Transport in Wales. Available at:
+							https://www.gov.wales/written-statement-rural-transport-wales (Accessed: 30 Jan. 2024).</li>
+						<li>Welsh Government, NST. (2014) National Survey for Wales, 2013-14 - Transport. Available at:
+							https://statswales.gov.wales/Download/File?fileId=391 (Accessed: 20 Jan. 2024).</li>
+						<li>Al Mahdi, O (2020) Useful Guidelines for Qualitative Data Analysis, Linkedin.com. Available
+							at:
+							https://www.linkedin.com/pulse/useful-guidelines-qualitative-data-analysis-osama-al-mahdi/
+							(Accessed: 30 Jan. 2024).</li>
+						<li>Visual Paradigm (no date) UML Class Diagram Tutorial. Available at:
+							https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/
+							(Accessed: 16 Feb. 2024)</li>
+						<li>Indeed Editorial Team. "What Is Descriptive Analytics? (With Steps and Examples)" Available
+							at: https://ca.indeed.com/career-advice/career-development/what-is-descriptive-analytics
+							(Accessed: 30 Jan. 2024)</li>
+						<li>Erkilinci, B.O. (2023) Simplicity in Data Visualization and Bar Chart, Linkedin.com.
+							Available at:
+							https://www.linkedin.com/pulse/simplicity-data-visualization-bar-chart-berkay-orkun-erk%C4%B1l%C4%B1n%C3%A7-tz6nf/
+							(Accessed: 30 Jan. 2024).</li>
+						<li>Curtin University (no date) Introduction to statistics. Available at:
+							https://uniskills.library.curtin.edu.au/numeracy/statistics/descriptive (Accessed: 30 Jan.
+							2024).</li>
+						<li>Shafi, A. (2023) Random Forest Classification with Scikit-Lears, Datacamp.com. Available at:
+							https://www.datacamp.com/tutorial/random-forests-classifier-python (Accessed: 30 Jan. 2024).
+						</li>
+					</ul>
+					<br>
+					</p>
+
+				</div>
+			</section>
+
+		</div>
+
+		<!-- Contact -->
+		<section id="contact">
+			<div class="inner">
+				<section>
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field half">
+								<label for="name">Name</label>
+								<input type="text" name="name" id="name" />
+							</div>
+							<div class="field half">
+								<label for="email">Email</label>
+								<input type="text" name="email" id="email" />
+							</div>
+							<div class="field">
+								<label for="message">Message</label>
+								<textarea name="message" id="message" rows="6"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send Message" class="primary" /></li>
+							<li><input type="reset" value="Clear" /></li>
+						</ul>
+					</form>
+				</section>
+				<section class="split">
+					<section>
+						<div class="contact-method">
+							<span class="icon solid alt fa-envelope"></span>
+							<h3>Email</h3>
+							<a href="#">information@untitled.tld</a>
+						</div>
+					</section>
+					<section>
+						<div class="contact-method">
+							<span class="icon solid alt fa-phone"></span>
+							<h3>Phone</h3>
+							<span>(000) 000-0000 x12387</span>
+						</div>
+					</section>
+					<section>
+						<div class="contact-method">
+							<span class="icon solid alt fa-home"></span>
+							<h3>Address</h3>
+							<span>1234 Somewhere Road #5432<br />
+								Nashville, TN 00000<br />
+								United States of America</span>
+						</div>
+					</section>
+				</section>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled</li>
+					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
