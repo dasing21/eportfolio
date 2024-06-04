@@ -81,22 +81,28 @@
                             process.</li>
                     </ul>
                     <h3>Solution</h3>
-                    <code>> library(haven)</code><br>
-                    <code>> csew1314teachingopen <- read_sav("...UKDA-8011-spss/spss/spss24/csew1314teachingopen.sav")</code><br>
-                    <code>> View(csew1314teachingopen)</code><br>
-                    <code>> bcsvictim = csew1314teachingopen[,28]</code><br>
-                    <code>> table(bcsvictim$bcsvictim)</code><br>
-                    <code>   0    1</code><br>
-                    <code>7460 1383</code><br>
-                    <br>
-                    <code>> vec1 = c(bcsvictim)</code><br>
-                    <code>> as_factor = factor(vec1)</code><br>
-                    <code>> as_factor</code><br>
-                    <code>> levels(as_factor) = c("No", "Yes")</code><br>
-                    <code>> print(as_factor)</code><br>
-                    <code>bcsvictim </code><br>
-                    <code>       No </code><br>
-                    <code>Levels: No Yes</code><br>
+
+
+                    <code>
+                        > library(haven)<br>
+                        > csew1314teachingopen <- read_sav(("Library/.../csew1314teachingopen.sav")<br>
+                        > View(csew1314teachingopen)<br>
+                        > bcsvictim = csew1314teachingopen[,28]<br>
+                        > table(bcsvictim$bcsvictim)<br>
+                           0    1 <br>
+                        7460 1383 <br>
+                        <br>
+                        > vec1 = c(bcsvictim)<br>
+                        > as_factor = factor(vec1)<br>
+                        > as_factor<br>
+                        > levels(as_factor) = c("No", "Yes")<br>
+                        > print(as_factor)<br>
+                        bcsvictim <br>
+                               No <br>
+                        Levels: No Yes<br>
+                    </code><br>
+
+
                     <br>
                     <h3>Data Activity 3</h3>
                     <p>Using the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset
@@ -116,11 +122,12 @@
                             process.</li>
                     </ul>
                     <h3>Solution</h3>
-                    <code>> crime_75victim <- csew1314teachingopen[csew1314teachingopen$agegrp7 == 7 & </code><br>
-                    <code>csew1314teachingopen$bcsvictim == 1, ]</code><br>
-                    <code>></code><br>
-                    <code>> print(crime_75victim)</code><br>
+                    <code>
+                        > crime_75victim <- csew1314teachingopen[csew1314teachingopen$agegrp7 == 7 & csew1314teachingopen$bcsvictim == 1, ]<br>
                     <br>
+                    > print(crime_75victim)<br>
+                    <br>
+                    </code>
                     <img src="images/data_activity_3.png" width="70%" height="auto" alt="Could not load image" />
                     <br><br>
                     <h3>Data Activity 4</h3>
@@ -155,27 +162,189 @@
                     </ul>
                     <h3>Solutions</h3>
                     <p>Task 4.1:</p>
-                    <code>> library(haven)</code><br>
-                    <code>> csew1314teachingopen <- read_sav("Library/...")</code><br>
-                    <code>> View(csew1314teachingopen)</code><br>
-                    <code>> antisocx = csew1314teachingopen[, 32]</code><br>
-                    <code>> View(antisocx)</code><br>
-                    <code>> boxplot(antisocx)</code><br>
-                    <code>> boxplot(antisocx, main= "Levels of anti-social behaviour in neighbourhood ‘antisocx'", col = "purple", outcol = "blue")</code><br>
+                    <code>
+                    > library(haven)<br>
+                    > csew1314teachingopen <- read_sav("Library/...")<br>
+                    > View(csew1314teachingopen)<br>
+                    > antisocx = csew1314teachingopen[, 32]<br>
+                    > View(antisocx)<br>
+                    > boxplot(antisocx)<br>
+                    > boxplot(antisocx, main= "Levels of anti-social behaviour in neighbourhood ‘antisocx'", col = "purple", outcol = "blue")<br>
+                    </code>
                     <br>
                     <img src="images/data_activity_4.1.png" width="70%" height="auto" alt="Could not load image" />
                     <br><br>
                     <p>Task 4.2:</p>
-                    <code>> bcsvictim = csew1314teachingopen[, 28]</code><br>
-                    <code>> bcsvictim_wo_na_values <-table(bcsvictim, useNA = "no")</code><br>
-                    <code>> View(bcsvictim_wo_na_values)</code><br>
-                    <code>> barplot(bcsvictim_wo_na_values,</code><br>
-                    <code>+         main = "Survey Respondents' Experience of Crime in the Past 12 Months",</code><br>
-                    <code>+         col = "orange",</code><br>
-                    <code>+         xlab = "Experienced Crime in the Past 12 Months",</code><br>
-                    <code>+         ylab = "Frequency")</code><br>
+                    <code>
+                        > bcsvictim = csew1314teachingopen[, 28]<br>
+                    > bcsvictim_wo_na_values <-table(bcsvictim, useNA = "no")<br>
+                    > View(bcsvictim_wo_na_values)<br>
+                    > barplot(bcsvictim_wo_na_values,<br>
+                    +         main = "Survey Respondents' Experience of Crime in the Past 12 Months",<br>
+                    +         col = "orange",<br>
+                    + xlab = "Experienced Crime in the Past 12 Months",<br>
+                    +         ylab = "Frequency")
+                    </code><br>
                     <br>
                     <img src="images/data_activity_4.2.png" width="70%" height="auto" alt="Could not load image" />
+
+                    <br>
+                    <h3>Data Activity 5</h3>
+                    <p>Using the Health_Data, please perform the following functions in R:</p>
+                    <ul>
+                        <li>Find out mean, median and mode of variables sbp, dbp and income.</li>
+                        <li>Find out the five-figure summary of income variable and present it using a Boxplot.</li>
+                        <li>Run a suitable hypothesis test to see if there is any association between systolic blood
+                            pressure and presence
+                            and absence of peptic ulcer.</li>
+                    </ul>
+                    Learning Outcomes:
+                    <br><br>
+                    <ul>
+                        <li>Systematic understanding of the key mathematical and statistical concepts and techniques
+                            which underpin
+                            mechanisms in Data Science and AI.</li>
+                        <li>Apply mathematical and statistical methods in these fields to help in the decision-making
+                            process.</li>
+                    </ul>
+                    <br>
+                    <h3>Solutions</h3>
+                    <p>Task 5.1</p>
+                    <code>
+    // Open dataset and view <br>
+    > library(haven)<br>
+    > Health_Data <- read_sav("Library/.../Health Data.sav")<br>
+    > View(Health_Data)<br>
+    <br>
+    // Create and view sbp variable<br>
+    > sbp = Health_Data[, 9]<br>
+    > View(sbp)<br>
+    <br>
+    // Create and view dbp variable<br>
+    > dbp = Health_Data[, 10]<br>
+    > View(dbp)<br>
+    <br>
+    // Find mean of sbp<br>
+    > mean_sbp <- mean(Health_Data$sbp)<br>
+    > cat("Mean of sbp:", mean_sbp)<br>
+    Mean of sbp: 127.7333<br>
+    <br>
+    // Find median of sbp<br>
+    > median_sbp = median(Health_Data$sbp)<br>
+    > cat("Median of sbp:", median_sbp)<br>
+    Median of sbp: 123<br>
+    <br>
+    // Find mode of sbp<br>
+    > get_mode <- function(x) {<br>
+         ux <- unique(x)<br>
+         ux[which.max(tabulate(match(x, ux)))]<br>
+     }<br>
+    > mode_sbp <- get_mode(Health_Data$sbp)<br>
+    > cat("Mode of sbp:", mode_sbp)<br>
+    Mode of sbp: 120<br>
+    <br>
+    // Find mean, median, and mode of dbp<br>
+    > mean_dbp = mean(Health_Data$dbp)<br>
+    > cat("Mean of dbp:", mean_dbp)<br>
+    Mean of dbp: 82.76667<br>
+    > median_dbp = median(Health_Data$dbp)<br>
+    > cat("Median of dbp: ", median_dbp)<br>
+    Median of dbp:  82<br>
+    > mode_dbp <- get_mode(Health_Data$dbp)<br>
+    > cat("Mode of dbp: ", mode_dbp)<br>
+    Mode of dbp:  80<br>
+    
+    // Find mean, median, and mode of income<br>
+    > mean_income = mean(Health_Data$income)<br>
+    > cat("Mean of income: ", mean_income)<br>
+    Mean of income:  85194.49<br>
+    > median_income = median(Health_Data$income)<br>
+    > cat("Median of income: ", median_income)<br>
+    Median of income:  86560.5<br>
+    > mode_income = get_mode(Health_Data$income)<br>
+    > cat("Mode of income: ", mode_income)<br>
+    Mode of income:  79774<br>
+    </code><br>
+                    <br>
+                    <img src="images/data_activity_4.1.png" width="70%" height="auto" alt="Could not load image" />
+                    <br><br>
+                    <p>Task 5.2</p>
+                    <code>
+    // Find 5-figure summary of income <br>
+    > summary_income = summary(Health_Data$income)<br>
+    > cat("5-figure summary of income: ", summary_income)<br>
+    5-figure summary of income:  52933 68636.5 86560.5 85194.49 99696.25 117210<br>
+    <br>
+    // Peresent it using a boxplot<br>
+    > boxplot(Health_Data$income, main = "Boxplot of Income", ylab = "Income")<br>
+</code>
+                    <img src="images/data_activity_3.png" width="70%" height="auto" alt="Could not load image" />
+                    <br><br>
+                    <p>Task 5.3</p>
+                    <code>
+    // First check the structure of variables sbp and pepticulcer<br>
+    > str(Health_Data$sbp)<br>
+    num [1:210] 107 105 157 101 101 123 148 100 102 141 ...<br>
+    - attr(*, "label")= chr "Systolic BP"<br>
+    - attr(*, "format.spss")= chr "F8.0"<br>
+    > str(Health_Data$pepticulcer)<br>
+    dbl+lbl [1:210] 2, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2...<br>
+    @ label      : chr "Have peptic ulcer"<br>
+    @ format.spss: chr "F1.0"<br>
+    @ labels     : Named num [1:2] 1 2<br>
+    ..- attr(*, "names")= chr [1:2] "Yes" "No"<br>
+    <br>
+    /* <br>
+    Finally, we use the wilcox.test() function to perform the Mann-Whitney U test. The formula <br>
+    sbp ~ pepticulcer indicates that we want to test the association between systolic blood pressure <br>
+    (sbp) and the presence or absence of peptic ulcer (pepticulcer). The data argument specifies the <br>
+    dataset.<br>
+    The Mann-Whitney U test is a non-parametric test that doesn't assume normality in the data and <br>
+    is suitable for comparing the distribution of a continuous variable (sbp) between two groups <br>
+    (presence and absence of peptic ulcer). The test will output a p-value, which indicates the <br>
+    significance of the association. If the p-value is below a certain threshold (e.g., 0.05), we <br>
+    can conclude that there is a significant association between sbp and peptic ulcer. <br>
+    */<br>
+    <br>
+    > wilcox.test(sbp ~ pepticulcer, data = Health_Data)<br>
+    <br>
+            Wilcoxon rank sum test with continuity correction<br>
+            <br>
+    data:  sbp by pepticulcer<br>
+    W = 3975.5, p-value = 0.1434<br>
+    alternative hypothesis: true location shift is not equal to 0<br>
+    <br>
+    /* <br>
+    Conclusion:<br>
+    Test statistic (W): In this case, the test statistic is 3975.5. This value represents the sum <br>
+    of the ranks assigned to the systolic blood pressure (sbp) values in the two groups (presence <br>
+    and absence of peptic ulcer). P-value: The p-value associated with the test statistic is 0.1434. <br>
+    This value represents the probability of observing a test statistic as extreme as, or more <br>
+    extreme than, the one obtained if the null hypothesis (no difference in sbp between the two <br>
+    groups) were true.<br>
+    <br>
+    Alternative hypothesis: The alternative hypothesis stated by the test is that the true location <br>
+    shift (difference in sbp between the two groups) is not equal to 0. This means that the test is <br>
+    assessing whether there is a significant difference in sbp between the presence and absence of <br>
+    peptic ulcer groups. Based on the output, with a p-value of 0.1434, we would typically use a <br>
+    significance level (alpha) of 0.05. Since the p-value is greater than alpha, we fail to reject <br>
+    the null hypothesis. This means that there is not enough evidence to conclude that there is a <br>
+    significant difference in systolic blood pressure between individuals with peptic ulcer and <br>
+    those without peptic ulcer. Therefore, based on this hypothesis test, we cannot conclude that <br>
+    there is an association between systolic blood pressure and the presence or absence of peptic <br>
+    ulcer in the population represented by the dataset.<br>
+    */<br>
+</code>
+                    <br><br>
+
+
+
+
+
+
+
+
+
                     </p>
                 </div>
             </section>
