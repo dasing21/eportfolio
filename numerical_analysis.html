@@ -161,7 +161,7 @@
                             process.</li>
                     </ul>
                     <h3>Solutions</h3>
-                    <p>Task 4.1:</p>
+                    <p>Task 4.1</p>
                     <code>
                     > library(haven)<br>
                     > csew1314teachingopen <- read_sav("Library/...")<br>
@@ -174,7 +174,7 @@
                     <br>
                     <img src="images/data_activity_4.1.png" width="70%" height="auto" alt="Could not load image" />
                     <br><br>
-                    <p>Task 4.2:</p>
+                    <p>Task 4.2</p>
                     <code>
                         > bcsvictim = csew1314teachingopen[, 28]<br>
                     > bcsvictim_wo_na_values <-table(bcsvictim, useNA = "no")<br>
@@ -449,6 +449,86 @@
                          conclude that there is a significant difference in systolic blood pressure across occupational groups.<br>
                         */<br>
                     </code>
+                    <br>
+                    <h3>Data Activity 7</h3>
+                    <p>Using the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset, perform the following
+                        activities:</p>
+                    <ul>
+                        <li>Create a crosstab to assess how individuals’ experience of any crime in the previous 12 months bcsvictim vary by
+                            age group agegrp7. </li>
+                        <li>Create the crosstab with bcsvictim in the rows and agegrp7 in the columns, and produce row percentages, rounded
+                            to 2 decimal places.</li>
+                        <li>Looking at the crosstab you have produced, which age groups were the most likely, and least likely, to be
+                            victims of crime?</li>
+                    </ul>
+                    Learning Outcomes:
+                    <br><br>
+                    <ul>
+                        <li>Systematic understanding of the key mathematical and statistical concepts and techniques which underpin
+                            mechanisms in Data Science and AI.</li>
+                        <li>Apply mathematical and statistical methods in these fields to help in the decision-making
+                            process.</li>
+                        <li>Critically evaluate the use of statistical analysis and the numeric interpretation of results as aids in the
+                            decision-making process.</li>
+                    </ul>
+                    <br>
+                    <h3>Solutions</h3>
+                    <p>Task 7.1</p>
+                    <code>
+                        // Load library haven for reading spss files <br>
+                        > library(haven)<br>
+                        <br>
+                        // Read and view the dataset<br>
+                        > csew1314teachingopen <- read_sav("Library/.../csew1314teachingopen.sav")<br>
+                        > View(csew1314teachingopen)<br>
+                        <br>
+                        // Create a crosstab for bcsvictim and vary by agegrp7<br>
+                        > crosstab = table(csew1314teachingopen$bcsvictim, csew1314teachingopen$agegrp7)<br>
+                        <br>
+                        // Print the crosstab<br>
+                        > print(crosstab)<br>
+                        <br>
+                               1    2    3    4    5    6    7<br>
+                          0  523 1049 1194 1242 1226 1194 1032<br>
+                          1  162  310  248  273  202  121   67<br>
+                          <br>
+                          <p>Task 7.2</p>
+                    <code>
+                        // Convert the counts to row percentages <br>
+                        > row_percentages = prop.table(crosstab, 1)<br>
+                        <br>
+                        // Round the percentages to 2 decimal places<br>
+                        > row_percentages = round(row_percentages * 100, 2)<br>
+                        <br>
+                        // Print the row percentages<br>
+                        > print(row_percentages)<br>
+                        <br>
+                                1     2     3     4     5     6     7<br>
+                          0  7.01 14.06 16.01 16.65 16.43 16.01 13.83<br>
+                          1 11.71 22.42 17.93 19.74 14.61  8.75  4.84<br>
+                    </code>
+                    <br>
+                    <p>Task 7.3</p>
+                    <code>
+                        // View the structure of the agegrp7 variable<br>
+                        > str(csew1314teachingopen$agegrp7)<br>
+                         dbl+lbl [1:8843] 4, 5, 5, 5, 6, 6, 4, 5, 5, 7, 2, 7, 7, 4, 4, 7, 4, 6, 5, 3, 6, 4, 3, 4, 3, 4, 5, 2, 5, 6, 6, <br>
+                         7, 6, 2, 4, 4, 5, 6...<br>
+                         @ label      : chr "Age group (7 bands)"<br>
+                         @ format.spss: chr "F8.0"<br>
+                         @ labels     : Named num [1:7] 1 2 3 4 5 6 7<br>
+                          ..- attr(*, "names")= chr [1:7] "16-24" "25-34" "35-44" "45-54" ...<br>
+                          <br>
+                        /*<br>
+                        Looking at the  crosstab, we can see that for the individuals who were not victims of crime (0), age <br>
+                        group 4 (age 45-54) has the highest percentage (16,65%), meaning it is the least likely to be victim of crime<br>
+                        <br>
+                        We can see that for the individuals who were victims of crime (1), age group 2 (age 25-34) has the highest <br>
+                        percentage (22,42%), meaning it is the most likely to be victim of crime<br>
+                        */<br>   
+                    </code>
+                    <br><br>
+
                     <br><br>
                     </p>
                 </div>
