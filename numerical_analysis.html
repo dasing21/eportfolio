@@ -277,7 +277,7 @@
                         <br>
                         // Peresent it using a boxplot<br>
                         > boxplot(Health_Data$income, main = "Boxplot of Income", ylab = "Income")<br>
-                    </code>
+                    </code><br>
                     <img src="images/data_activity_5.2.png" width="70%" height="auto" alt="Could not load image" />
                     <br><br>
                     <p>Task 5.3</p>
@@ -498,8 +498,8 @@
                           0  523 1049 1194 1242 1226 1194 1032<br>
                           1  162  310  248  273  202  121   67<br>
                           <br>
-                          <p>Task 7.2</p>
-                    </code>
+                        </code>
+                    <p>Task 7.2</p>
                     <code>
                         // Convert the counts to row percentages <br>
                         > row_percentages = prop.table(crosstab, 1)<br>
@@ -594,6 +594,165 @@
 abline(lm(dbp ~ sbp), col = "red") <br>
 </code><br>
                     <img src="images/data_activity_8.1.2.png" width="70%" height="auto" alt="Could not load image" />
+                    <br><br>
+                    <h3>Data Activity 9</h3>
+                    <p>Using the Health_Data, please perform the following functions in R:
+                    </p>
+                    <ul>
+                        <li>Perform simple linear regression analysis to find the population regression equation to
+                            predict the diastolic BP
+                            by systolic BP.</li>
+                        <li>Interpret the findings of regression analysis at 5% level of significance.</li>
+                    </ul>
+                    Learning Outcomes:
+                    <br><br>
+                    <ul>
+                        <li>Systematic understanding of the key mathematical and statistical concepts and techniques
+                            which underpin
+                            mechanisms in Data Science and AI.</li>
+                        <li>Apply mathematical and statistical methods in these fields to help in the decision-making
+                            process.</li>
+                        <li>Critically evaluate the use of statistical analysis and the numeric interpretation of
+                            results as aids in the
+                            decision-making process.</li>
+                    </ul>
+                    <h3>Solutions</h3>
+                    <p>Task 9.1</p>
+                    <code>
+                        // Read file<br>
+                        > library(haven)<br>
+                        > Health_Data <- read_sav("Library/.../Health Data.sav")<br>
+                        > View(Health_Data)<br>
+                        <br>
+                        // Create model<br>
+                        > model = lm(dbp ~ sbp, data = Health_Data)<br>
+                        <br>
+                        // Summarize model<br>
+                        > summary(model)<br>
+                        <br>
+                        Call:<br>
+                        lm(formula = dbp ~ sbp, data = Health_Data)<br>
+                        <br>
+                        Residuals:<br>
+                             Min       1Q   Median       3Q      Max <br>
+                        -16.7958  -3.9366   0.1804   3.6685  19.2042 <br>
+                        <br>
+                        Coefficients:<br>
+                                    Estimate Std. Error t value Pr(>|t|)    <br>
+                        (Intercept)  19.4068     2.7931   6.948 4.67e-11 ***<br>
+                        sbp           0.4960     0.0216  22.961  < 2e-16 ***<br>
+                        ---<br>
+                        Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br>
+                        <br>
+                        Residual standard error: 6.264 on 208 degrees of freedom<br>
+                        Multiple R-squared:  0.7171,	Adjusted R-squared:  0.7157 <br>
+                        F-statistic: 527.2 on 1 and 208 DF,  p-value: < 2.2e-16<br>
+                        <br>
+                        // Install and load broom library to get tidy model outputs<br>
+                        > install.packages("broom")<br>
+                        > library(broom)<br>
+                        <br>
+                        // Get tidy model output<br>
+                        > tidy(model)<br>
+                        # A tibble: 2 × 5<br>
+                          term        estimate std.error statistic  p.value<br>
+                          &lt;chr&gt;          &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;<br>
+                        1 (Intercept)   19.4      2.79        6.95 4.67e-11<br>
+                        2 sbp            0.496    0.0216     23.0  6.11e-59<br>
+                        <br>
+                        // Install and load ggplot2 library to create regression line with ggplot2<br>
+                        > install.packages("ggplot2")<br>
+                        > library(ggplot2)<br>
+                        <br>
+                        // Plot the regression line with ggplot2<br>
+                        > ggplot(Health_Data, aes(x = sbp, y = dbp)) +<br>
+                             geom_point() +                   <br>
+                             geom_smooth(method = "lm", col = "blue") + <br>
+                             labs(title = "Regression of Diastolic BP on Systolic BP",<br>
+                                  x = "Systolic BP (sbp)",<br>
+                                  y = "Diastolic BP (dbp)")<br>
+                                  <br>
+                    </code> <br>
+                    <img src="images/data_activity_9.1.png" width="70%" height="auto" alt="Could not load image" />
+                    <br>
+                    <p>Task 9.2</p>
+                    <code>
+                        /*<br>
+                        1. Model Summary:<br>
+                        <br>
+                        The regression model used is:<br>
+                        dbp = β0 + β1 * sbp<br>
+                        <br>
+                        2. Coefficients:<br>
+                        <br>
+                        The coefficients table shows the estimated values for the intercept β0 and the slope β1:<br>
+                        Intercept β0 = 19.4068<br>
+                         - This is the estimated value of diastolic blood pressure (DBP) when systolic blood pressure (SBP) is zero. <br>
+                         Although it's not practically meaningful to have an SBP of zero, it provides a baseline for the model. <br>
+                        Slope β1 = 0.4960<br>
+                          - This is the estimated change in DBP for each one-unit increase in SBP. Specifically, for each additional <br>
+                          unit of SBP, DBP is expected to increase by 0.4960 units.<br>
+                          <br>
+                        3. Statistical Significance:<br>
+                        <br>
+                        The p-value for the slope β1 is < 2e-16, which is much less than the 5% significance level (0.05). This <br>
+                        indicates that the relationship between SBP and DBP is statistically significant.<br>
+                        The t-value for the slope β1 is 22.961, indicating strong evidence against the null hypothesis H0 <br>
+                        (which states that there is no relationship between SBP and DBP).<br>
+                        <br>
+                        4. Goodness of Fit:<br>
+                        <br>
+                        Multiple R-squared R2 = 0.7171<br>
+                         - This indicates that approximately 71.71% of the variability in DBP can be explained by SBP. This <br>
+                         suggests a strong linear relationship between SBP and DBP.<br>
+                        Adjusted R-squared R2: 0.7157<br>
+                         - Similar to the R-squared but adjusted for the number of predictors in the model. Since there is only <br>
+                         one predictor, it is almost the same as the R-squared.<br>
+                         <br>
+                        5. Residual Standard Error (RSE):<br>
+                        <br>
+                        Residual standard error: 6.264 on 208 degrees of freedom<br>
+                        This is the standard deviation of the residuals (errors). It gives an estimate of the typical size of <br>
+                        the errors in the model's predictions. <br>
+                        A lower value indicates a better fit, but the value itself should be interpreted in the context of the <br>
+                        data's scale.<br>
+                        <br>
+                        6. F-statistic:<br>
+                        F-statistic: 527.2 on 1 and 208 DF, p-value: < 2.2e-16<br>
+                        This statistic tests the overall significance of the model. <br>
+                        The very small p-value indicates that the model is highly significant.<br>
+                        <br>
+                        Interpretation at 5% Significance Level:<br>
+                        <br>
+                        1. Significant Relationship:<br>
+                         - There is a statistically significant relationship between systolic blood pressure (SBP) and diastolic <br>
+                         blood pressure (DBP) at the 5% level of significance. <br>
+                         - The p-value for the SBP coefficient is less than 0.05, leading us to reject the null hypothesis H0 <br>
+                         that β1 = 0<br>
+                         <br>
+                        2. Model Fit:<br>
+                         - The model explains a substantial proportion of the variability in DBP, as indicated by the high R-squared <br>
+                         value R2 (71.71%).<br>
+                         <br>
+                        3. Predictive Power:<br>
+                         - For each unit increase in SBP, DBP increases by approximately 0.496 units.<br>
+                         <br>
+                        4. Reliability of Estimates:<br>
+                         - The small standard errors and high t-values suggest that our coefficient estimates are reliable<br>
+                         <br>
+                        Conclusion:<br>
+                        At a 5% level of significance, the systolic blood pressure (SBP) is a significant predictor of diastolic <br>
+                        blood pressure (DBP). <br>
+                        The regression model fits the data well, explaining about 71.71% of the variability in DBP. <br>
+                        The relationship is positive, meaning as SBP increases, DBP also increases.<br>
+                        <br>
+                        The regression analysis provides strong evidence to reject the null hypothesis in favor of the <br>
+                        alternative hypothesis. Therefore, we conclude that there is a significant relationship between <br>
+                        systolic blood pressure and diastolic blood pressure at the 5% significance level.<br>
+                        */  <br>
+                    </code> <br>
+                    <br><br>
+
                     <br><br>
                     </p>
                 </div>
