@@ -266,6 +266,7 @@
                         Mode of income:  79774<br>
                         </code><br>
                     <br>
+                    <img src="images/data_activity_5.2.png" width="70%" height="auto" alt="Could not load image" />
                     <br><br>
                     <p>Task 5.2</p>
                     <code>
@@ -281,59 +282,59 @@
                     <br><br>
                     <p>Task 5.3</p>
                     <code>
-                        // First check the structure of variables sbp and pepticulcer<br>
-                        > str(Health_Data$sbp)<br>
-                        num [1:210] 107 105 157 101 101 123 148 100 102 141 ...<br>
-                        - attr(*, "label")= chr "Systolic BP"<br>
-                        - attr(*, "format.spss")= chr "F8.0"<br>
-                        > str(Health_Data$pepticulcer)<br>
-                        dbl+lbl [1:210] 2, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2...<br>
-                        @ label      : chr "Have peptic ulcer"<br>
-                        @ format.spss: chr "F1.0"<br>
-                        @ labels     : Named num [1:2] 1 2<br>
-                        ..- attr(*, "names")= chr [1:2] "Yes" "No"<br>
-                        <br>
-                        /* <br>
-                        Finally, we use the wilcox.test() function to perform the Mann-Whitney U test. The formula <br>
-                        sbp ~ pepticulcer indicates that we want to test the association between systolic blood pressure <br>
-                        (sbp) and the presence or absence of peptic ulcer (pepticulcer). The data argument specifies the <br>
-                        dataset.<br>
-                        The Mann-Whitney U test is a non-parametric test that doesn't assume normality in the data and <br>
-                        is suitable for comparing the distribution of a continuous variable (sbp) between two groups <br>
-                        (presence and absence of peptic ulcer). The test will output a p-value, which indicates the <br>
-                        significance of the association. If the p-value is below a certain threshold (e.g., 0.05), we <br>
-                        can conclude that there is a significant association between sbp and peptic ulcer. <br>
-                        */<br>
-                        <br>
-                        > wilcox.test(sbp ~ pepticulcer, data = Health_Data)<br>
-                         <br>
-                        Wilcoxon rank sum test with continuity correction<br>
-                        <br>
-                        data:  sbp by pepticulcer<br>
-                        W = 3975.5, p-value = 0.1434<br>
-                        alternative hypothesis: true location shift is not equal to 0<br>
-                        <br>
-                        /* <br>
-                        Conclusion:<br>
-                        Test statistic (W): In this case, the test statistic is 3975.5. This value represents the sum <br>
-                        of the ranks assigned to the systolic blood pressure (sbp) values in the two groups (presence <br>
-                        and absence of peptic ulcer). P-value: The p-value associated with the test statistic is 0.1434. <br>
-                        This value represents the probability of observing a test statistic as extreme as, or more <br>
-                        extreme than, the one obtained if the null hypothesis (no difference in sbp between the two <br>
-                        groups) were true.<br>
-                        <br>
-                        Alternative hypothesis: The alternative hypothesis stated by the test is that the true location <br>
-                        shift (difference in sbp between the two groups) is not equal to 0. This means that the test is <br>
-                        assessing whether there is a significant difference in sbp between the presence and absence of <br>
-                        peptic ulcer groups. Based on the output, with a p-value of 0.1434, we would typically use a <br>
-                        significance level (alpha) of 0.05. Since the p-value is greater than alpha, we fail to reject <br>
-                        the null hypothesis. This means that there is not enough evidence to conclude that there is a <br>
-                        significant difference in systolic blood pressure between individuals with peptic ulcer and <br>
-                        those without peptic ulcer. Therefore, based on this hypothesis test, we cannot conclude that <br>
-                        there is an association between systolic blood pressure and the presence or absence of peptic <br>
-                        ulcer in the population represented by the dataset.<br>
-                        */<br>
-                    </code>
+    // First check the structure of variables sbp and pepticulcer<br>
+    > str(Health_Data$sbp)<br>
+    num [1:210] 107 105 157 101 101 123 148 100 102 141 ...<br>
+    - attr(*, "label")= chr "Systolic BP"<br>
+    - attr(*, "format.spss")= chr "F8.0"<br>
+    > str(Health_Data$pepticulcer)<br>
+    dbl+lbl [1:210] 2, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2...<br>
+    @ label      : chr "Have peptic ulcer"<br>
+    @ format.spss: chr "F1.0"<br>
+    @ labels     : Named num [1:2] 1 2<br>
+    ..- attr(*, "names")= chr [1:2] "Yes" "No"<br>
+    <br>
+    /* <br>
+    Finally, we use the wilcox.test() function to perform the Mann-Whitney U test. The formula <br>
+    sbp ~ pepticulcer indicates that we want to test the association between systolic blood pressure <br>
+    (sbp) and the presence or absence of peptic ulcer (pepticulcer). The data argument specifies the <br>
+    dataset.<br>
+    The Mann-Whitney U test is a non-parametric test that doesn't assume normality in the data and <br>
+    is suitable for comparing the distribution of a continuous variable (sbp) between two groups <br>
+    (presence and absence of peptic ulcer). The test will output a p-value, which indicates the <br>
+    significance of the association. If the p-value is below a certain threshold (e.g., 0.05), we <br>
+    can conclude that there is a significant association between sbp and peptic ulcer. <br>
+    */<br>
+    <br>
+    > wilcox.test(sbp ~ pepticulcer, data = Health_Data)<br>
+    <br>
+            Wilcoxon rank sum test with continuity correction<br>
+            <br>
+    data:  sbp by pepticulcer<br>
+    W = 3975.5, p-value = 0.1434<br>
+    alternative hypothesis: true location shift is not equal to 0<br>
+    <br>
+    /* <br>
+    Conclusion:<br>
+    Test statistic (W): In this case, the test statistic is 3975.5. This value represents the sum <br>
+    of the ranks assigned to the systolic blood pressure (sbp) values in the two groups (presence <br>
+    and absence of peptic ulcer). P-value: The p-value associated with the test statistic is 0.1434. <br>
+    This value represents the probability of observing a test statistic as extreme as, or more <br>
+    extreme than, the one obtained if the null hypothesis (no difference in sbp between the two <br>
+    groups) were true.<br>
+    <br>
+    Alternative hypothesis: The alternative hypothesis stated by the test is that the true location <br>
+    shift (difference in sbp between the two groups) is not equal to 0. This means that the test is <br>
+    assessing whether there is a significant difference in sbp between the presence and absence of <br>
+    peptic ulcer groups. Based on the output, with a p-value of 0.1434, we would typically use a <br>
+    significance level (alpha) of 0.05. Since the p-value is greater than alpha, we fail to reject <br>
+    the null hypothesis. This means that there is not enough evidence to conclude that there is a <br>
+    significant difference in systolic blood pressure between individuals with peptic ulcer and <br>
+    those without peptic ulcer. Therefore, based on this hypothesis test, we cannot conclude that <br>
+    there is an association between systolic blood pressure and the presence or absence of peptic <br>
+    ulcer in the population represented by the dataset.<br>
+    */<br>
+</code>
                     <br><br>
                     <h3>Data Activity 6</h3>
                     <p>Using the Health_Data, please perform the following functions in R:</p>
@@ -498,6 +499,7 @@
                           1  162  310  248  273  202  121   67<br>
                           <br>
                           <p>Task 7.2</p>
+                    </code>
                     <code>
                         // Convert the counts to row percentages <br>
                         > row_percentages = prop.table(crosstab, 1)<br>
@@ -532,7 +534,6 @@
                         percentage (22,42%), meaning it is the most likely to be victim of crime<br>
                         */<br>   
                     </code>
-                    <br><br>
                     <br>
                     <h3>Data Activity 8</h3>
                     <p>Using the Health_Data, please perform the following functions in R:
@@ -557,43 +558,42 @@
                     <h3>Solutions</h3>
                     <p>Task 8.1</p>
                     <code>
-                        // Load the dataset <br>
-                        library(haven)<br>
-                        Health_Data <- read_spss(".../HealthData.sav")<br>
-                        <br>
-                        // Extract the sbp and dbp columns<br>
-                        sbp = Health_Data$sbp<br>
-                        dbp = Health_Data$dbp<br>
-                        <br>
-                        // Calculate the correlation between sbp and dbp<br>
-                        correlation = cor(sbp, dbp, use = "complete.obs")<br>
-                        <br>
-                        // Print the correlation result<br>
-                        print(correlation)<br>
-                        [1] 0.846808<br>
-                        <br>
-                        /*<br>
-                        The correlation coefficient we obtained, r=0.846808, indicates a very strong positive relationship between <br>
-                        systolic blood pressure (sbp) and diastolic blood pressure (dbp) in our dataset.<br>
-                        */<br>
-                    </code>
+    // Load the dataset <br>
+    library(haven)<br>
+    Health_Data <- read_spss(".../HealthData.sav")<br>
+    <br>
+    // Extract the sbp and dbp columns<br>
+    sbp = Health_Data$sbp<br>
+    dbp = Health_Data$dbp<br>
+    <br>
+    // Calculate the correlation between sbp and dbp<br>
+    correlation = cor(sbp, dbp, use = "complete.obs")<br>
+    <br>
+    // Print the correlation result<br>
+    print(correlation)<br>
+    [1] 0.846808<br>
+    <br>
+    /*<br>
+    The correlation coefficient we obtained, r=0.846808, indicates a very strong positive relationship between <br>
+    systolic blood pressure (sbp) and diastolic blood pressure (dbp) in our dataset.<br>
+    */<br>
+</code>
                     <br>
                     <p>Task 8.2</p>
                     <code>
-                        // Scatter plot to visualize the relationship <br>
-                        plot(sbp, dbp, main = "Scatter plot of Systolic vs Diastolic Blood Pressure",<br>
-                            xlab = "Systolic Blood Pressure (sbp)",<br>
-                            ylab = "Diastolic Blood Pressure (dbp)",<br>
-                            pch = 19, col = "blue")<br>
-                    </code> <br>
-                    <img src="images/data_activity_8.1.png" width="70%" height="auto" alt="Could not load image" /> <br><br>
-                    <code>
-                    // Add a regression line <br>
-                    abline(lm(dbp ~ sbp), col = "red") <br>
-                    </code><br>
-                    <img src="images/data_activity_8.1.2.png" width="70%" height="auto" alt="Could not load image" />
+    // Scatter plot to visualize the relationship <br>
+    plot(sbp, dbp, main = "Scatter plot of Systolic vs Diastolic Blood Pressure",<br>
+        xlab = "Systolic Blood Pressure (sbp)",<br>
+        ylab = "Diastolic Blood Pressure (dbp)",<br>
+        pch = 19, col = "blue")<br>
+</code> <br>
+                    <img src="images/data_activity_8.1.png" width="70%" height="auto" alt="Could not load image" />
                     <br><br>
-
+                    <code>
+// Add a regression line <br>
+abline(lm(dbp ~ sbp), col = "red") <br>
+</code><br>
+                    <img src="images/data_activity_8.1.2.png" width="70%" height="auto" alt="Could not load image" />
                     <br><br>
                     </p>
                 </div>

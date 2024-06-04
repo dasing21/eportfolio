@@ -1,8 +1,6 @@
-<br>
 <h3>Data Activity 8</h3>
 <p>Using the Health_Data, please perform the following functions in R:
 </p>
-<br><br>
 <ul>
     <li>Find out correlation between systolic and diastolic BP.</li>
     <li>Produce a scatter plot between systolic and diastolic BP.</li>
@@ -10,11 +8,13 @@
 Learning Outcomes:
 <br><br>
 <ul>
-    <li>Systematic understanding of the key mathematical and statistical concepts and techniques which underpin
+    <li>Systematic understanding of the key mathematical and statistical concepts and techniques
+        which underpin
         mechanisms in Data Science and AI.</li>
     <li>Apply mathematical and statistical methods in these fields to help in the decision-making
         process.</li>
-    <li>Critically evaluate the use of statistical analysis and the numeric interpretation of results as aids in the
+    <li>Critically evaluate the use of statistical analysis and the numeric interpretation of
+        results as aids in the
         decision-making process.</li>
 </ul>
 <br>
@@ -41,19 +41,19 @@ Learning Outcomes:
     systolic blood pressure (sbp) and diastolic blood pressure (dbp) in our dataset.<br>
     */<br>
 </code>
-
+<br>
 <p>Task 8.2</p>
 <code>
     // Scatter plot to visualize the relationship <br>
     plot(sbp, dbp, main = "Scatter plot of Systolic vs Diastolic Blood Pressure",<br>
-         xlab = "Systolic Blood Pressure (sbp)",<br>
-         ylab = "Diastolic Blood Pressure (dbp)",<br>
-         pch = 19, col = "blue")<br>
-</code>
-<img src="images/data_activity_8.1.png" width="70%" height="auto" alt="Could not load image" />
+        xlab = "Systolic Blood Pressure (sbp)",<br>
+        ylab = "Diastolic Blood Pressure (dbp)",<br>
+        pch = 19, col = "blue")<br>
+</code> <br>
+<img src="images/data_activity_8.1.png" width="70%" height="auto" alt="Could not load image" /> <br><br>
 <code>
-    // Add a regression line <br>
-    abline(lm(dbp ~ sbp), col = "red") <br>
-</code>
+// Add a regression line <br>
+abline(lm(dbp ~ sbp), col = "red") <br>
+</code><br>
 <img src="images/data_activity_8.1.2.png" width="70%" height="auto" alt="Could not load image" />
 <br><br>
