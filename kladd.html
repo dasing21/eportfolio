@@ -1,12 +1,11 @@
 <br>
-<h3>Data Activity 5</h3>
+<h3>Data Activity 6</h3>
 <p>Using the Health_Data, please perform the following functions in R:</p>
 <br><br>
 <ul>
-    <li>Find out mean, median and mode of variables sbp, dbp and income.</li>
-    <li>Find out the five-figure summary of income variable and present it using a Boxplot.</li>
-    <li>Run a suitable hypothesis test to see if there is any association between systolic blood pressure and presence
-        and absence of peptic ulcer.</li>
+    <li>Find out the mean, median and mode of ‘age’ variable.</li>
+    <li>Find out whether median diastolic blood pressure is same among diabetic and non-diabetic participants.</li>
+    <li>Find out whether systolic BP is different across occupational group.</li>
 </ul>
 Learning Outcomes:
 <br><br>
@@ -18,131 +17,98 @@ Learning Outcomes:
 </ul>
 <br>
 <h3>Solution</h3>
-<p>Task 5.1</p>
+<p>Task 6</p>
 <code>
-    // Open dataset and view <br>
+    // Find mean, median, and mode of 'age'-variable <br>
     > library(haven)<br>
     > Health_Data <- read_sav("Library/.../Health Data.sav")<br>
     > View(Health_Data)<br>
-    <br>
-    // Create and view sbp variable<br>
-    > sbp = Health_Data[, 9]<br>
-    > View(sbp)<br>
-    <br>
-    // Create and view dbp variable<br>
-    > dbp = Health_Data[, 10]<br>
-    > View(dbp)<br>
-    <br>
-    // Find mean of sbp<br>
-    > mean_sbp <- mean(Health_Data$sbp)<br>
-    > cat("Mean of sbp:", mean_sbp)<br>
-    Mean of sbp: 127.7333<br>
-    <br>
-    // Find median of sbp<br>
-    > median_sbp = median(Health_Data$sbp)<br>
-    > cat("Median of sbp:", median_sbp)<br>
-    Median of sbp: 123<br>
-    <br>
-    // Find mode of sbp<br>
+    > age = Health_Data[, 2]<br>
+    > View(age)<br>
+    > mean_age <- mean(Health_Data$age)<br>
+    > median_age = median(Health_Data$age)<br>
     > get_mode <- function(x) {<br>
-         ux <- unique(x)<br>
-         ux[which.max(tabulate(match(x, ux)))]<br>
-     }<br>
-    > mode_sbp <- get_mode(Health_Data$sbp)<br>
-    > cat("Mode of sbp:", mode_sbp)<br>
-    Mode of sbp: 120<br>
+    +     ux <- unique(x)<br>
+    +     ux[which.max(tabulate(match(x, ux)))]<br>
+    + }<br>
+    > mode_age <- get_mode(Health_Data$age)<br>
     <br>
-    // Find mean, median, and mode of dbp<br>
-    > mean_dbp = mean(Health_Data$dbp)<br>
-    > cat("Mean of dbp:", mean_dbp)<br>
-    Mean of dbp: 82.76667<br>
-    > median_dbp = median(Health_Data$dbp)<br>
-    > cat("Median of dbp: ", median_dbp)<br>
-    Median of dbp:  82<br>
-    > mode_dbp <- get_mode(Health_Data$dbp)<br>
-    > cat("Mode of dbp: ", mode_dbp)<br>
-    Mode of dbp:  80<br>
-    
-    // Find mean, median, and mode of income<br>
-    > mean_income = mean(Health_Data$income)<br>
-    > cat("Mean of income: ", mean_income)<br>
-    Mean of income:  85194.49<br>
-    > median_income = median(Health_Data$income)<br>
-    > cat("Median of income: ", median_income)<br>
-    Median of income:  86560.5<br>
-    > mode_income = get_mode(Health_Data$income)<br>
-    > cat("Mode of income: ", mode_income)<br>
-    Mode of income:  79774<br>
-    </code><br>
-<br>
-<img src="images/data_activity_4.1.png" width="70%" height="auto" alt="Could not load image" />
-<br>
-<p>Task 5.2</p>
-<code>
-    // Find 5-figure summary of income <br>
-    > summary_income = summary(Health_Data$income)<br>
-    > cat("5-figure summary of income: ", summary_income)<br>
-    5-figure summary of income:  52933 68636.5 86560.5 85194.49 99696.25 117210<br>
-    <br>
-    // Peresent it using a boxplot<br>
-    > boxplot(Health_Data$income, main = "Boxplot of Income", ylab = "Income")<br>
-</code>
-<img src="images/data_activity_3.png" width="70%" height="auto" alt="Could not load image" />
-<br><br>
-<p>Task 5.3</p>
-<code>
-    // First check the structure of variables sbp and pepticulcer<br>
-    > str(Health_Data$sbp)<br>
-    num [1:210] 107 105 157 101 101 123 148 100 102 141 ...<br>
-    - attr(*, "label")= chr "Systolic BP"<br>
-    - attr(*, "format.spss")= chr "F8.0"<br>
-    > str(Health_Data$pepticulcer)<br>
-    dbl+lbl [1:210] 2, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2...<br>
-    @ label      : chr "Have peptic ulcer"<br>
-    @ format.spss: chr "F1.0"<br>
-    @ labels     : Named num [1:2] 1 2<br>
-    ..- attr(*, "names")= chr [1:2] "Yes" "No"<br>
     <br>
     /* <br>
-    Finally, we use the wilcox.test() function to perform the Mann-Whitney U test. The formula <br>
-    sbp ~ pepticulcer indicates that we want to test the association between systolic blood pressure <br>
-    (sbp) and the presence or absence of peptic ulcer (pepticulcer). The data argument specifies the <br>
-    dataset.<br>
-    The Mann-Whitney U test is a non-parametric test that doesn't assume normality in the data and <br>
-    is suitable for comparing the distribution of a continuous variable (sbp) between two groups <br>
-    (presence and absence of peptic ulcer). The test will output a p-value, which indicates the <br>
-    significance of the association. If the p-value is below a certain threshold (e.g., 0.05), we <br>
-    can conclude that there is a significant association between sbp and peptic ulcer. <br>
+    Find out whether median diastolic blood pressure is same among diabetic and non-diabetic participants<br>
     */<br>
     <br>
-    > wilcox.test(sbp ~ pepticulcer, data = Health_Data)<br>
+    // View the structure of 'diabetes'-variable<br>
+    > str(Health_Data$diabetes)<br>
+     dbl+lbl [1:210] 2, 1, 2, 2, 1, 1, 1, 2, 2, 2, 1, 2, 2, 1, 2, 2, 2, 2, 1, 2, 1, 1, 2, 2, 1, 2, 2...<br>
+     @ label      : chr "Have diabetes mellitus"<br>
+     @ format.spss: chr "F2.0"<br>
+     @ labels     : Named num [1:2] 1 2<br>
+      ..- attr(*, "names")= chr [1:2] "Yes" "No"<br>
+      <br>
+    // Subset the data into diabetic and non-diabetic groups<br>
+    > dbp_diabetic <- Health_Data$dbp[Health_Data$diabetes == 1]<br>
+    > dbp_non_diabetic <- Health_Data$dbp[Health_Data$diabetes == 2]<br>
+    <br>
+    // Perform the Mann-Whitney U test<br>
+    > wilcox.test(dbp_diabetic, dbp_non_diabetic)<br>
     <br>
             Wilcoxon rank sum test with continuity correction<br>
             <br>
-    data:  sbp by pepticulcer<br>
-    W = 3975.5, p-value = 0.1434<br>
+    data:  dbp_diabetic and dbp_non_diabetic<br>
+    W = 3804.5, p-value = 0.7999<br>
     alternative hypothesis: true location shift is not equal to 0<br>
     <br>
-    /* <br>
-    Conclusion:<br>
-    Test statistic (W): In this case, the test statistic is 3975.5. This value represents the sum <br>
-    of the ranks assigned to the systolic blood pressure (sbp) values in the two groups (presence <br>
-    and absence of peptic ulcer). P-value: The p-value associated with the test statistic is 0.1434. <br>
-    This value represents the probability of observing a test statistic as extreme as, or more <br>
-    extreme than, the one obtained if the null hypothesis (no difference in sbp between the two <br>
-    groups) were true.<br>
+    /*<br>
+    The p-value of 0.7999 is greater than the conventional significance level of 0.05. Therefore, we <br>
+    fail to reject the null hypothesis.<br>
     <br>
-    Alternative hypothesis: The alternative hypothesis stated by the test is that the true location <br>
-    shift (difference in sbp between the two groups) is not equal to 0. This means that the test is <br>
-    assessing whether there is a significant difference in sbp between the presence and absence of <br>
-    peptic ulcer groups. Based on the output, with a p-value of 0.1434, we would typically use a <br>
-    significance level (alpha) of 0.05. Since the p-value is greater than alpha, we fail to reject <br>
-    the null hypothesis. This means that there is not enough evidence to conclude that there is a <br>
-    significant difference in systolic blood pressure between individuals with peptic ulcer and <br>
-    those without peptic ulcer. Therefore, based on this hypothesis test, we cannot conclude that <br>
-    there is an association between systolic blood pressure and the presence or absence of peptic <br>
-    ulcer in the population represented by the dataset.<br>
-    */
+    Conclusion: Based on the results of the Wilcoxon rank sum test, there is not enough evidence to <br>
+    conclude that the median diastolic blood pressure differs between diabetic and non-diabetic <br>
+    participants. Therefore, we cannot conclude that the median diastolic blood pressure is different <br>
+    among diabetic and non-diabetic participants.<br>
+    */<br>
+    <br>
+    // Find out whether systolic BP is different across occupational group<br>
+    <br>
+    // View the structure of the 'occupation'-variable<br>
+    > str(Health_Data$occupation)<br>
+     dbl+lbl [1:210] 1, 4, 4, 1, 2, 4, 1, 2, 3, 1, 3, 4, 2, 4, 4, 2, 3, 3, 3, 1, 1, 3, 1, 3, 2, 4, 2...<br>
+     @ label      : chr "Occupation"<br>
+     @ format.spss: chr "F1.0"<br>
+     @ labels     : Named num [1:4] 1 2 3 4<br>
+      ..- attr(*, "names")= chr [1:4] "GOVT JOB" "PRIVATE JOB" "BUSINESS" "OTHERS"<br>
+      <br>
+      <br>
+    // Convert 'occupation' column to a factor with appropriate labels<br>
+    > Health_Data$occupation <- factor(Health_Data$occupation, labels = c("GOVT JOB", "PRIVATE JOB", <br>
+    "BUSINESS", "OTHERS"))<br>
+    <br>
+    /*<br>
+    To determine whether sbp differs across occupational groups, we will use an appropriate statistical <br>
+    test, such as analysis of variance (ANOVA)<br>
+    */<br>
+    <br>
+    // Perform the Kruskal-Wallis test<br>
+    > kruskal.test(sbp ~ occupation, data = Health_Data)<br>
+    <br>
+            Kruskal-Wallis rank sum test<br>
+            <br>
+    data:  sbp by occupation<br>
+    Kruskal-Wallis chi-squared = 0.77906, df = 3, p-value = 0.8545<br>
+    <br>
+    /*<br>
+    The output of the Kruskal-Wallis test indicates the following:<br>
+            1) Kruskal-Wallis chi-squared statistic: 0.77906<br>
+            2) Degrees of freedom: 3<br>
+            3) p-value: 0.8545<br>
+            <br>
+    The p-value of 0.8545 is greater than the conventional significance level of 0.05. Therefore, we fail<br>
+    to reject the null hypothesis.<br>
+    <br>    
+    Conclusion: Based on the results of the Kruskal-Wallis test, there is not enough evidence to conclude <br>
+    that the systolic blood pressure (sbp) differs across occupational groups. Therefore, we cannot<br>
+     conclude that there is a significant difference in systolic blood pressure across occupational groups.<br>
+    */<br>
 </code>
-<img src="images/data_activity_3.png" width="70%" height="auto" alt="Could not load image" />
 <br><br>

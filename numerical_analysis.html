@@ -187,7 +187,7 @@
                     </code><br>
                     <br>
                     <img src="images/data_activity_4.2.png" width="70%" height="auto" alt="Could not load image" />
-
+                    <br>
                     <br>
                     <h3>Data Activity 5</h3>
                     <p>Using the Health_Data, please perform the following functions in R:</p>
@@ -336,15 +336,120 @@
     */<br>
 </code>
                     <br><br>
-
-
-
-
-
-
-
-
-
+                    <h3>Data Activity 6</h3>
+                    <p>Using the Health_Data, please perform the following functions in R:</p>
+                    <ul>
+                        <li>Find out the mean, median and mode of ‘age’ variable.</li>
+                        <li>Find out whether median diastolic blood pressure is same among diabetic and non-diabetic
+                            participants.</li>
+                        <li>Find out whether systolic BP is different across occupational group.</li>
+                    </ul>
+                    Learning Outcomes:
+                    <br><br>
+                    <ul>
+                        <li>Systematic understanding of the key mathematical and statistical concepts and techniques
+                            which underpin
+                            mechanisms in Data Science and AI.</li>
+                        <li>Apply mathematical and statistical methods in these fields to help in the decision-making
+                            process.</li>
+                    </ul>
+                    <br>
+                    <h3>Solution</h3>
+                    <p>Task 6</p>
+                    <code>
+                        // Find mean, median, and mode of 'age'-variable <br>
+                        > library(haven)<br>
+                        > Health_Data <- read_sav("Library/.../Health Data.sav")<br>
+                        > View(Health_Data)<br>
+                        > age = Health_Data[, 2]<br>
+                        > View(age)<br>
+                        > mean_age <- mean(Health_Data$age)<br>
+                        > median_age = median(Health_Data$age)<br>
+                        > get_mode <- function(x) {<br>
+                        +     ux <- unique(x)<br>
+                        +     ux[which.max(tabulate(match(x, ux)))]<br>
+                        + }<br>
+                        > mode_age <- get_mode(Health_Data$age)<br>
+                        <br>
+                        <br>
+                        /* <br>
+                        Find out whether median diastolic blood pressure is same among diabetic and non-diabetic participants<br>
+                        */<br>
+                        <br>
+                        // View the structure of 'diabetes'-variable<br>
+                        > str(Health_Data$diabetes)<br>
+                         dbl+lbl [1:210] 2, 1, 2, 2, 1, 1, 1, 2, 2, 2, 1, 2, 2, 1, 2, 2, 2, 2, 1, 2, 1, 1, 2, 2, 1, 2, 2...<br>
+                         @ label      : chr "Have diabetes mellitus"<br>
+                         @ format.spss: chr "F2.0"<br>
+                         @ labels     : Named num [1:2] 1 2<br>
+                          ..- attr(*, "names")= chr [1:2] "Yes" "No"<br>
+                          <br>
+                        // Subset the data into diabetic and non-diabetic groups<br>
+                        > dbp_diabetic <- Health_Data$dbp[Health_Data$diabetes == 1]<br>
+                        > dbp_non_diabetic <- Health_Data$dbp[Health_Data$diabetes == 2]<br>
+                        <br>
+                        // Perform the Mann-Whitney U test<br>
+                        > wilcox.test(dbp_diabetic, dbp_non_diabetic)<br>
+                        <br>
+                                Wilcoxon rank sum test with continuity correction<br>
+                                <br>
+                        data:  dbp_diabetic and dbp_non_diabetic<br>
+                        W = 3804.5, p-value = 0.7999<br>
+                        alternative hypothesis: true location shift is not equal to 0<br>
+                        <br>
+                        /*<br>
+                        The p-value of 0.7999 is greater than the conventional significance level of 0.05. Therefore, we <br>
+                        fail to reject the null hypothesis.<br>
+                        <br>
+                        Conclusion: Based on the results of the Wilcoxon rank sum test, there is not enough evidence to <br>
+                        conclude that the median diastolic blood pressure differs between diabetic and non-diabetic <br>
+                        participants. Therefore, we cannot conclude that the median diastolic blood pressure is different <br>
+                        among diabetic and non-diabetic participants.<br>
+                        */<br>
+                        <br>
+                        // Find out whether systolic BP is different across occupational group<br>
+                        <br>
+                        // View the structure of the 'occupation'-variable<br>
+                        > str(Health_Data$occupation)<br>
+                         dbl+lbl [1:210] 1, 4, 4, 1, 2, 4, 1, 2, 3, 1, 3, 4, 2, 4, 4, 2, 3, 3, 3, 1, 1, 3, 1, 3, 2, 4, 2...<br>
+                         @ label      : chr "Occupation"<br>
+                         @ format.spss: chr "F1.0"<br>
+                         @ labels     : Named num [1:4] 1 2 3 4<br>
+                          ..- attr(*, "names")= chr [1:4] "GOVT JOB" "PRIVATE JOB" "BUSINESS" "OTHERS"<br>
+                          <br>
+                          <br>
+                        // Convert 'occupation' column to a factor with appropriate labels<br>
+                        > Health_Data$occupation <- factor(Health_Data$occupation, labels = c("GOVT JOB", "PRIVATE JOB", <br>
+                        "BUSINESS", "OTHERS"))<br>
+                        <br>
+                        /*<br>
+                        To determine whether sbp differs across occupational groups, we will use an appropriate statistical <br>
+                        test, such as analysis of variance (ANOVA)<br>
+                        */<br>
+                        <br>
+                        // Perform the Kruskal-Wallis test<br>
+                        > kruskal.test(sbp ~ occupation, data = Health_Data)<br>
+                        <br>
+                                Kruskal-Wallis rank sum test<br>
+                                <br>
+                        data:  sbp by occupation<br>
+                        Kruskal-Wallis chi-squared = 0.77906, df = 3, p-value = 0.8545<br>
+                        <br>
+                        /*<br>
+                        The output of the Kruskal-Wallis test indicates the following:<br>
+                                1) Kruskal-Wallis chi-squared statistic: 0.77906<br>
+                                2) Degrees of freedom: 3<br>
+                                3) p-value: 0.8545<br>
+                                <br>
+                        The p-value of 0.8545 is greater than the conventional significance level of 0.05. Therefore, we fail<br>
+                        to reject the null hypothesis.<br>
+                        <br>    
+                        Conclusion: Based on the results of the Kruskal-Wallis test, there is not enough evidence to conclude <br>
+                        that the systolic blood pressure (sbp) differs across occupational groups. Therefore, we cannot<br>
+                         conclude that there is a significant difference in systolic blood pressure across occupational groups.<br>
+                        */<br>
+                    </code>
+                    <br><br>
                     </p>
                 </div>
             </section>
