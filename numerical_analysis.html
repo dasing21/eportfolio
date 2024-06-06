@@ -86,7 +86,6 @@
                             which underpin
                             mechanisms in Data Science and AI.</li>
                     </ul>
-                    <br>
                     <h3>Solution</h3>
                     <p>Task 1.2</p>
                     <img src="images/data_activity_1.png" width="40%" height="auto" alt="Could not load image" /> <br><br>
@@ -228,7 +227,7 @@
                     > boxplot(antisocx, main= "Levels of anti-social behaviour in neighbourhood ‘antisocx'", col = "purple", outcol = "blue")<br>
                     </code>
                     <br>
-                    <img src="images/data_activity_4.1.png" width="70%" height="auto" alt="Could not load image" />
+                    <img src="images/data_activity_4.1.png" width="40%" height="auto" alt="Could not load image" />
                     <br><br>
                     <p>Task 4.2</p>
                     <code>
@@ -242,7 +241,7 @@
                     +         ylab = "Frequency")
                     </code><br>
                     <br>
-                    <img src="images/data_activity_4.2.png" width="70%" height="auto" alt="Could not load image" />
+                    <img src="images/data_activity_4.2.png" width="40%" height="auto" alt="Could not load image" />
                     <br>
                     <br>
                     <h3>Data Activity 5</h3>
@@ -271,25 +270,20 @@
                         > library(haven)<br>
                         > Health_Data <- read_sav("Library/.../Health Data.sav")<br>
                         > View(Health_Data)<br>
-                        <br>
                         // Create and view sbp variable<br>
                         > sbp = Health_Data[, 9]<br>
                         > View(sbp)<br>
-                        <br>
                         // Create and view dbp variable<br>
                         > dbp = Health_Data[, 10]<br>
                         > View(dbp)<br>
-                        <br>
                         // Find mean of sbp<br>
                         > mean_sbp <- mean(Health_Data$sbp)<br>
                         > cat("Mean of sbp:", mean_sbp)<br>
                         Mean of sbp: 127.7333<br>
-                        <br>
                         // Find median of sbp<br>
                         > median_sbp = median(Health_Data$sbp)<br>
                         > cat("Median of sbp:", median_sbp)<br>
                         Median of sbp: 123<br>
-                        <br>
                         // Find mode of sbp<br>
                         > get_mode <- function(x) {<br>
                             ux <- unique(x)<br>
@@ -298,7 +292,6 @@
                         > mode_sbp <- get_mode(Health_Data$sbp)<br>
                         > cat("Mode of sbp:", mode_sbp)<br>
                         Mode of sbp: 120<br>
-                        <br>
                         // Find mean, median, and mode of dbp<br>
                         > mean_dbp = mean(Health_Data$dbp)<br>
                         > cat("Mean of dbp:", mean_dbp)<br>
@@ -309,7 +302,6 @@
                         > mode_dbp <- get_mode(Health_Data$dbp)<br>
                         > cat("Mode of dbp: ", mode_dbp)<br>
                         Mode of dbp:  80<br>
-                        
                         // Find mean, median, and mode of income<br>
                         > mean_income = mean(Health_Data$income)<br>
                         > cat("Mean of income: ", mean_income)<br>
@@ -322,7 +314,7 @@
                         Mode of income:  79774<br>
                         </code><br>
                     <br>
-                    <img src="images/data_activity_5.2.png" width="70%" height="auto" alt="Could not load image" />
+                    <img src="images/data_activity_5.2.png" width="40%" height="auto" alt="Could not load image" />
                     <br><br>
                     <p>Task 5.2</p>
                     <code>
@@ -330,67 +322,62 @@
                         > summary_income = summary(Health_Data$income)<br>
                         > cat("5-figure summary of income: ", summary_income)<br>
                         5-figure summary of income:  52933 68636.5 86560.5 85194.49 99696.25 117210<br>
-                        <br>
                         // Peresent it using a boxplot<br>
                         > boxplot(Health_Data$income, main = "Boxplot of Income", ylab = "Income")<br>
                     </code><br>
-                    <img src="images/data_activity_5.2.png" width="70%" height="auto" alt="Could not load image" />
+                    <img src="images/data_activity_5.2.png" width="40%" height="auto" alt="Could not load image" />
                     <br><br>
                     <p>Task 5.3</p>
                     <code>
-    // First check the structure of variables sbp and pepticulcer<br>
-    > str(Health_Data$sbp)<br>
-    num [1:210] 107 105 157 101 101 123 148 100 102 141 ...<br>
-    - attr(*, "label")= chr "Systolic BP"<br>
-    - attr(*, "format.spss")= chr "F8.0"<br>
-    > str(Health_Data$pepticulcer)<br>
-    dbl+lbl [1:210] 2, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2...<br>
-    @ label      : chr "Have peptic ulcer"<br>
-    @ format.spss: chr "F1.0"<br>
-    @ labels     : Named num [1:2] 1 2<br>
-    ..- attr(*, "names")= chr [1:2] "Yes" "No"<br>
-    <br>
-    /* <br>
-    Finally, we use the wilcox.test() function to perform the Mann-Whitney U test. The formula <br>
-    sbp ~ pepticulcer indicates that we want to test the association between systolic blood pressure <br>
-    (sbp) and the presence or absence of peptic ulcer (pepticulcer). The data argument specifies the <br>
-    dataset.<br>
-    The Mann-Whitney U test is a non-parametric test that doesn't assume normality in the data and <br>
-    is suitable for comparing the distribution of a continuous variable (sbp) between two groups <br>
-    (presence and absence of peptic ulcer). The test will output a p-value, which indicates the <br>
-    significance of the association. If the p-value is below a certain threshold (e.g., 0.05), we <br>
-    can conclude that there is a significant association between sbp and peptic ulcer. <br>
-    */<br>
-    <br>
-    > wilcox.test(sbp ~ pepticulcer, data = Health_Data)<br>
-    <br>
-            Wilcoxon rank sum test with continuity correction<br>
-            <br>
-    data:  sbp by pepticulcer<br>
-    W = 3975.5, p-value = 0.1434<br>
-    alternative hypothesis: true location shift is not equal to 0<br>
-    <br>
-    /* <br>
-    Conclusion:<br>
-    Test statistic (W): In this case, the test statistic is 3975.5. This value represents the sum <br>
-    of the ranks assigned to the systolic blood pressure (sbp) values in the two groups (presence <br>
-    and absence of peptic ulcer). P-value: The p-value associated with the test statistic is 0.1434. <br>
-    This value represents the probability of observing a test statistic as extreme as, or more <br>
-    extreme than, the one obtained if the null hypothesis (no difference in sbp between the two <br>
-    groups) were true.<br>
-    <br>
-    Alternative hypothesis: The alternative hypothesis stated by the test is that the true location <br>
-    shift (difference in sbp between the two groups) is not equal to 0. This means that the test is <br>
-    assessing whether there is a significant difference in sbp between the presence and absence of <br>
-    peptic ulcer groups. Based on the output, with a p-value of 0.1434, we would typically use a <br>
-    significance level (alpha) of 0.05. Since the p-value is greater than alpha, we fail to reject <br>
-    the null hypothesis. This means that there is not enough evidence to conclude that there is a <br>
-    significant difference in systolic blood pressure between individuals with peptic ulcer and <br>
-    those without peptic ulcer. Therefore, based on this hypothesis test, we cannot conclude that <br>
-    there is an association between systolic blood pressure and the presence or absence of peptic <br>
-    ulcer in the population represented by the dataset.<br>
-    */<br>
-</code>
+                        // First check the structure of variables sbp and pepticulcer<br>
+                        > str(Health_Data$sbp)<br>
+                        num [1:210] 107 105 157 101 101 123 148 100 102 141 ...<br>
+                        - attr(*, "label")= chr "Systolic BP"<br>
+                        - attr(*, "format.spss")= chr "F8.0"<br>
+                        > str(Health_Data$pepticulcer)<br>
+                        dbl+lbl [1:210] 2, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2...<br>
+                        @ label      : chr "Have peptic ulcer"<br>
+                        @ format.spss: chr "F1.0"<br>
+                        @ labels     : Named num [1:2] 1 2<br>
+                        ..- attr(*, "names")= chr [1:2] "Yes" "No"<br>
+                        /* <br>
+                        Finally, we use the wilcox.test() function to perform the Mann-Whitney U test. The formula <br>
+                        sbp ~ pepticulcer indicates that we want to test the association between systolic blood pressure <br>
+                        (sbp) and the presence or absence of peptic ulcer (pepticulcer). The data argument specifies the <br>
+                        dataset.<br>
+                        The Mann-Whitney U test is a non-parametric test that doesn't assume normality in the data and <br>
+                        is suitable for comparing the distribution of a continuous variable (sbp) between two groups <br>
+                        (presence and absence of peptic ulcer). The test will output a p-value, which indicates the <br>
+                        significance of the association. If the p-value is below a certain threshold (e.g., 0.05), we <br>
+                        can conclude that there is a significant association between sbp and peptic ulcer. <br>
+                        */<br>
+                        > wilcox.test(sbp ~ pepticulcer, data = Health_Data)<br>
+                        Wilcoxon rank sum test with continuity correction<br>
+                        data:  sbp by pepticulcer<br>
+                        W = 3975.5, p-value = 0.1434<br>
+                        alternative hypothesis: true location shift is not equal to 0<br>
+                        /* <br>
+                        Conclusion:<br>
+                        Test statistic (W): In this case, the test statistic is 3975.5. This value represents the sum <br>
+                        of the ranks assigned to the systolic blood pressure (sbp) values in the two groups (presence <br>
+                        and absence of peptic ulcer). P-value: The p-value associated with the test statistic is 0.1434. <br>
+                        This value represents the probability of observing a test statistic as extreme as, or more <br>
+                        extreme than, the one obtained if the null hypothesis (no difference in sbp between the two <br>
+                        groups) were true.<br>
+                        */<br>
+                        /*<br>
+                        Alternative hypothesis: The alternative hypothesis stated by the test is that the true location <br>
+                        shift (difference in sbp between the two groups) is not equal to 0. This means that the test is <br>
+                        assessing whether there is a significant difference in sbp between the presence and absence of <br>
+                        peptic ulcer groups. Based on the output, with a p-value of 0.1434, we would typically use a <br>
+                        significance level (alpha) of 0.05. Since the p-value is greater than alpha, we fail to reject <br>
+                        the null hypothesis. This means that there is not enough evidence to conclude that there is a <br>
+                        significant difference in systolic blood pressure between individuals with peptic ulcer and <br>
+                        those without peptic ulcer. Therefore, based on this hypothesis test, we cannot conclude that <br>
+                        there is an association between systolic blood pressure and the presence or absence of peptic <br>
+                        ulcer in the population represented by the dataset.<br>
+                        */<br>
+                    </code>
                     <br><br>
                     <h3>Data Activity 6</h3>
                     <p>Using the Health_Data, please perform the following functions in R:</p>
@@ -409,7 +396,6 @@
                         <li>Apply mathematical and statistical methods in these fields to help in the decision-making
                             process.</li>
                     </ul>
-                    <br>
                     <h3>Solution</h3>
                     <p>Task 6</p>
                     <code>
@@ -426,12 +412,9 @@
                         +     ux[which.max(tabulate(match(x, ux)))]<br>
                         + }<br>
                         > mode_age <- get_mode(Health_Data$age)<br>
-                        <br>
-                        <br>
                         /* <br>
                         Find out whether median diastolic blood pressure is same among diabetic and non-diabetic participants<br>
                         */<br>
-                        <br>
                         // View the structure of 'diabetes'-variable<br>
                         > str(Health_Data$diabetes)<br>
                          dbl+lbl [1:210] 2, 1, 2, 2, 1, 1, 1, 2, 2, 2, 1, 2, 2, 1, 2, 2, 2, 2, 1, 2, 1, 1, 2, 2, 1, 2, 2...<br>
@@ -439,32 +422,26 @@
                          @ format.spss: chr "F2.0"<br>
                          @ labels     : Named num [1:2] 1 2<br>
                           ..- attr(*, "names")= chr [1:2] "Yes" "No"<br>
-                          <br>
                         // Subset the data into diabetic and non-diabetic groups<br>
                         > dbp_diabetic <- Health_Data$dbp[Health_Data$diabetes == 1]<br>
                         > dbp_non_diabetic <- Health_Data$dbp[Health_Data$diabetes == 2]<br>
-                        <br>
                         // Perform the Mann-Whitney U test<br>
                         > wilcox.test(dbp_diabetic, dbp_non_diabetic)<br>
-                        <br>
-                                Wilcoxon rank sum test with continuity correction<br>
-                                <br>
+                        Wilcoxon rank sum test with continuity correction<br>
                         data:  dbp_diabetic and dbp_non_diabetic<br>
                         W = 3804.5, p-value = 0.7999<br>
                         alternative hypothesis: true location shift is not equal to 0<br>
-                        <br>
                         /*<br>
                         The p-value of 0.7999 is greater than the conventional significance level of 0.05. Therefore, we <br>
                         fail to reject the null hypothesis.<br>
-                        <br>
+                        */<br>
+                        /*<br>
                         Conclusion: Based on the results of the Wilcoxon rank sum test, there is not enough evidence to <br>
                         conclude that the median diastolic blood pressure differs between diabetic and non-diabetic <br>
                         participants. Therefore, we cannot conclude that the median diastolic blood pressure is different <br>
                         among diabetic and non-diabetic participants.<br>
                         */<br>
-                        <br>
                         // Find out whether systolic BP is different across occupational group<br>
-                        <br>
                         // View the structure of the 'occupation'-variable<br>
                         > str(Health_Data$occupation)<br>
                          dbl+lbl [1:210] 1, 4, 4, 1, 2, 4, 1, 2, 3, 1, 3, 4, 2, 4, 4, 2, 3, 3, 3, 1, 1, 3, 1, 3, 2, 4, 2...<br>
@@ -472,34 +449,27 @@
                          @ format.spss: chr "F1.0"<br>
                          @ labels     : Named num [1:4] 1 2 3 4<br>
                           ..- attr(*, "names")= chr [1:4] "GOVT JOB" "PRIVATE JOB" "BUSINESS" "OTHERS"<br>
-                          <br>
-                          <br>
                         // Convert 'occupation' column to a factor with appropriate labels<br>
                         > Health_Data$occupation <- factor(Health_Data$occupation, labels = c("GOVT JOB", "PRIVATE JOB", <br>
                         "BUSINESS", "OTHERS"))<br>
-                        <br>
                         /*<br>
                         To determine whether sbp differs across occupational groups, we will use an appropriate statistical <br>
                         test, such as analysis of variance (ANOVA)<br>
                         */<br>
-                        <br>
                         // Perform the Kruskal-Wallis test<br>
                         > kruskal.test(sbp ~ occupation, data = Health_Data)<br>
-                        <br>
-                                Kruskal-Wallis rank sum test<br>
-                                <br>
+                        Kruskal-Wallis rank sum test<br>
                         data:  sbp by occupation<br>
                         Kruskal-Wallis chi-squared = 0.77906, df = 3, p-value = 0.8545<br>
-                        <br>
                         /*<br>
                         The output of the Kruskal-Wallis test indicates the following:<br>
-                                1) Kruskal-Wallis chi-squared statistic: 0.77906<br>
-                                2) Degrees of freedom: 3<br>
-                                3) p-value: 0.8545<br>
-                                <br>
+                        1) Kruskal-Wallis chi-squared statistic: 0.77906<br>
+                        2) Degrees of freedom: 3<br>
+                        3) p-value: 0.8545<br>
                         The p-value of 0.8545 is greater than the conventional significance level of 0.05. Therefore, we fail<br>
                         to reject the null hypothesis.<br>
-                        <br>    
+                        */ <br>
+                        /* <br>
                         Conclusion: Based on the results of the Kruskal-Wallis test, there is not enough evidence to conclude <br>
                         that the systolic blood pressure (sbp) differs across occupational groups. Therefore, we cannot<br>
                          conclude that there is a significant difference in systolic blood pressure across occupational groups.<br>
@@ -539,33 +509,25 @@
                     <code>
                         // Load library haven for reading spss files <br>
                         > library(haven)<br>
-                        <br>
                         // Read and view the dataset<br>
                         > csew1314teachingopen <- read_sav("Library/.../csew1314teachingopen.sav")<br>
                         > View(csew1314teachingopen)<br>
-                        <br>
                         // Create a crosstab for bcsvictim and vary by agegrp7<br>
                         > crosstab = table(csew1314teachingopen$bcsvictim, csew1314teachingopen$agegrp7)<br>
-                        <br>
                         // Print the crosstab<br>
                         > print(crosstab)<br>
-                        <br>
                                1    2    3    4    5    6    7<br>
                           0  523 1049 1194 1242 1226 1194 1032<br>
                           1  162  310  248  273  202  121   67<br>
-                          <br>
-                        </code>
+                        </code> <br>
                     <p>Task 7.2</p>
                     <code>
                         // Convert the counts to row percentages <br>
                         > row_percentages = prop.table(crosstab, 1)<br>
-                        <br>
                         // Round the percentages to 2 decimal places<br>
                         > row_percentages = round(row_percentages * 100, 2)<br>
-                        <br>
                         // Print the row percentages<br>
                         > print(row_percentages)<br>
-                        <br>
                                 1     2     3     4     5     6     7<br>
                           0  7.01 14.06 16.01 16.65 16.43 16.01 13.83<br>
                           1 11.71 22.42 17.93 19.74 14.61  8.75  4.84<br>
@@ -581,11 +543,9 @@
                          @ format.spss: chr "F8.0"<br>
                          @ labels     : Named num [1:7] 1 2 3 4 5 6 7<br>
                           ..- attr(*, "names")= chr [1:7] "16-24" "25-34" "35-44" "45-54" ...<br>
-                          <br>
                         /*<br>
                         Looking at the  crosstab, we can see that for the individuals who were not victims of crime (0), age <br>
                         group 4 (age 45-54) has the highest percentage (16,65%), meaning it is the least likely to be victim of crime<br>
-                        <br>
                         We can see that for the individuals who were victims of crime (1), age group 2 (age 25-34) has the highest <br>
                         percentage (22,42%), meaning it is the most likely to be victim of crime<br>
                         */<br>   
@@ -610,46 +570,41 @@
                             results as aids in the
                             decision-making process.</li>
                     </ul>
-                    <br>
                     <h3>Solutions</h3>
                     <p>Task 8.1</p>
                     <code>
-    // Load the dataset <br>
-    library(haven)<br>
-    Health_Data <- read_spss(".../HealthData.sav")<br>
-    <br>
-    // Extract the sbp and dbp columns<br>
-    sbp = Health_Data$sbp<br>
-    dbp = Health_Data$dbp<br>
-    <br>
-    // Calculate the correlation between sbp and dbp<br>
-    correlation = cor(sbp, dbp, use = "complete.obs")<br>
-    <br>
-    // Print the correlation result<br>
-    print(correlation)<br>
-    [1] 0.846808<br>
-    <br>
-    /*<br>
-    The correlation coefficient we obtained, r=0.846808, indicates a very strong positive relationship between <br>
-    systolic blood pressure (sbp) and diastolic blood pressure (dbp) in our dataset.<br>
-    */<br>
-</code>
+                        // Load the dataset <br>
+                        library(haven)<br>
+                        Health_Data <- read_spss(".../HealthData.sav")<br>
+                        // Extract the sbp and dbp columns<br>
+                        sbp = Health_Data$sbp<br>
+                        dbp = Health_Data$dbp<br>
+                        // Calculate the correlation between sbp and dbp<br>
+                        correlation = cor(sbp, dbp, use = "complete.obs")<br>
+                        // Print the correlation result<br>
+                        print(correlation)<br>
+                        [1] 0.846808<br>
+                        /*<br>
+                        The correlation coefficient we obtained, r=0.846808, indicates a very strong positive relationship between <br>
+                        systolic blood pressure (sbp) and diastolic blood pressure (dbp) in our dataset.<br>
+                        */<br>
+                    </code>
                     <br>
                     <p>Task 8.2</p>
                     <code>
-    // Scatter plot to visualize the relationship <br>
-    plot(sbp, dbp, main = "Scatter plot of Systolic vs Diastolic Blood Pressure",<br>
-        xlab = "Systolic Blood Pressure (sbp)",<br>
-        ylab = "Diastolic Blood Pressure (dbp)",<br>
-        pch = 19, col = "blue")<br>
-</code> <br>
-                    <img src="images/data_activity_8.1.png" width="70%" height="auto" alt="Could not load image" />
+                        // Scatter plot to visualize the relationship <br>
+                        plot(sbp, dbp, main = "Scatter plot of Systolic vs Diastolic Blood Pressure",<br>
+                        xlab = "Systolic Blood Pressure (sbp)",<br>
+                        ylab = "Diastolic Blood Pressure (dbp)",<br>
+                        pch = 19, col = "blue")<br>
+                    </code> <br>
+                    <img src="images/data_activity_8.1.png" width="40%" height="auto" alt="Could not load image" />
                     <br><br>
                     <code>
-// Add a regression line <br>
-abline(lm(dbp ~ sbp), col = "red") <br>
-</code><br>
-                    <img src="images/data_activity_8.1.2.png" width="70%" height="auto" alt="Could not load image" />
+                    // Add a regression line <br>
+                    abline(lm(dbp ~ sbp), col = "red") <br>
+                    </code><br>
+                    <img src="images/data_activity_8.1.2.png" width="40%" height="auto" alt="Could not load image" />
                     <br><br>
                     <h3>Data Activity 9</h3>
                     <p>Using the Health_Data, please perform the following functions in R:
@@ -679,35 +634,27 @@ abline(lm(dbp ~ sbp), col = "red") <br>
                         > library(haven)<br>
                         > Health_Data <- read_sav("Library/.../Health Data.sav")<br>
                         > View(Health_Data)<br>
-                        <br>
                         // Create model<br>
                         > model = lm(dbp ~ sbp, data = Health_Data)<br>
-                        <br>
                         // Summarize model<br>
                         > summary(model)<br>
-                        <br>
                         Call:<br>
                         lm(formula = dbp ~ sbp, data = Health_Data)<br>
-                        <br>
                         Residuals:<br>
                              Min       1Q   Median       3Q      Max <br>
                         -16.7958  -3.9366   0.1804   3.6685  19.2042 <br>
-                        <br>
                         Coefficients:<br>
                                     Estimate Std. Error t value Pr(>|t|)    <br>
                         (Intercept)  19.4068     2.7931   6.948 4.67e-11 ***<br>
                         sbp           0.4960     0.0216  22.961  < 2e-16 ***<br>
                         ---<br>
                         Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br>
-                        <br>
                         Residual standard error: 6.264 on 208 degrees of freedom<br>
                         Multiple R-squared:  0.7171,	Adjusted R-squared:  0.7157 <br>
                         F-statistic: 527.2 on 1 and 208 DF,  p-value: < 2.2e-16<br>
-                        <br>
                         // Install and load broom library to get tidy model outputs<br>
                         > install.packages("broom")<br>
                         > library(broom)<br>
-                        <br>
                         // Get tidy model output<br>
                         > tidy(model)<br>
                         # A tibble: 2 × 5<br>
@@ -715,11 +662,9 @@ abline(lm(dbp ~ sbp), col = "red") <br>
                           &lt;chr&gt;          &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;<br>
                         1 (Intercept)   19.4      2.79        6.95 4.67e-11<br>
                         2 sbp            0.496    0.0216     23.0  6.11e-59<br>
-                        <br>
                         // Install and load ggplot2 library to create regression line with ggplot2<br>
                         > install.packages("ggplot2")<br>
                         > library(ggplot2)<br>
-                        <br>
                         // Plot the regression line with ggplot2<br>
                         > ggplot(Health_Data, aes(x = sbp, y = dbp)) +<br>
                              geom_point() +                   <br>
@@ -727,20 +672,16 @@ abline(lm(dbp ~ sbp), col = "red") <br>
                              labs(title = "Regression of Diastolic BP on Systolic BP",<br>
                                   x = "Systolic BP (sbp)",<br>
                                   y = "Diastolic BP (dbp)")<br>
-                                  <br>
                     </code> <br>
-                    <img src="images/data_activity_9.1.png" width="70%" height="auto" alt="Could not load image" />
+                    <img src="images/data_activity_9.1.png" width="40%" height="auto" alt="Could not load image" />
                     <br><br>
                     <p>Task 9.2</p>
                     <code>
                         /*<br>
                         1. Model Summary:<br>
-                        <br>
                         The regression model used is:<br>
                         dbp = β0 + β1 * sbp<br>
-                        <br>
                         2. Coefficients:<br>
-                        <br>  
                         The coefficients table shows the estimated values for the intercept β0 and the slope β1:<br>
                         Intercept β0 = 19.4068<br>
                          - This is the estimated value of diastolic blood pressure (DBP) when systolic blood pressure (SBP) is zero. <br>
@@ -748,60 +689,46 @@ abline(lm(dbp ~ sbp), col = "red") <br>
                         Slope β1 = 0.4960<br>
                           - This is the estimated change in DBP for each one-unit increase in SBP. Specifically, for each additional <br>
                           unit of SBP, DBP is expected to increase by 0.4960 units.<br>
-                          <br>
                         3. Statistical Significance:<br>
-                        <br>
                         The p-value for the slope β1 is < 2e-16, which is much less than the 5% significance level (0.05). This <br>
                         indicates that the relationship between SBP and DBP is statistically significant.<br>
                         The t-value for the slope β1 is 22.961, indicating strong evidence against the null hypothesis H0 <br>
                         (which states that there is no relationship between SBP and DBP).<br>
-                        <br>
                         4. Goodness of Fit:<br>
-                        <br>
                         Multiple R-squared R2 = 0.7171<br>
                          - This indicates that approximately 71.71% of the variability in DBP can be explained by SBP. This <br>
                          suggests a strong linear relationship between SBP and DBP.<br>
                         Adjusted R-squared R2: 0.7157<br>
                          - Similar to the R-squared but adjusted for the number of predictors in the model. Since there is only <br>
                          one predictor, it is almost the same as the R-squared.<br>
-                         <br>
                         5. Residual Standard Error (RSE):<br>
-                        <br>
                         Residual standard error: 6.264 on 208 degrees of freedom<br>
                         This is the standard deviation of the residuals (errors). It gives an estimate of the typical size of <br>
                         the errors in the model's predictions. <br>
                         A lower value indicates a better fit, but the value itself should be interpreted in the context of the <br>
                         data's scale.<br>
-                        <br>
                         6. F-statistic:<br>
                         F-statistic: 527.2 on 1 and 208 DF, p-value: < 2.2e-16<br>
                         This statistic tests the overall significance of the model. <br>
                         The very small p-value indicates that the model is highly significant.<br>
-                        <br>
                         Interpretation at 5% Significance Level:<br>
-                        <br>
                         1. Significant Relationship:<br>
                          - There is a statistically significant relationship between systolic blood pressure (SBP) and diastolic <br>
                          blood pressure (DBP) at the 5% level of significance. <br>
                          - The p-value for the SBP coefficient is less than 0.05, leading us to reject the null hypothesis H0 <br>
                          that β1 = 0<br>
-                         <br>
                         2. Model Fit:<br>
                          - The model explains a substantial proportion of the variability in DBP, as indicated by the high R-squared <br>
                          value R2 (71.71%).<br>
-                         <br>
                         3. Predictive Power:<br>
                          - For each unit increase in SBP, DBP increases by approximately 0.496 units.<br>
-                         <br>
                         4. Reliability of Estimates:<br>
                          - The small standard errors and high t-values suggest that our coefficient estimates are reliable<br>
-                         <br>
                         Conclusion:<br>
                         At a 5% level of significance, the systolic blood pressure (SBP) is a significant predictor of diastolic <br>
                         blood pressure (DBP). <br>
                         The regression model fits the data well, explaining about 71.71% of the variability in DBP. <br>
                         The relationship is positive, meaning as SBP increases, DBP also increases.<br>
-                        <br>
                         The regression analysis provides strong evidence to reject the null hypothesis in favor of the <br>
                         alternative hypothesis. Therefore, we conclude that there is a significant relationship between <br>
                         systolic blood pressure and diastolic blood pressure at the 5% significance level.<br>
