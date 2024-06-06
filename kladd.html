@@ -1,157 +1,56 @@
-<h3>Data Activity 9</h3>
-<p>Using the Health_Data, please perform the following functions in R:
+<h3>Data Activity 1</h3>
+<p>
+    Download the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset from its catalogue
+    page. It is an open access dataset which the data are available to download without any registration with the UK
+    Data Service.
 </p>
 <ul>
-    <li>Perform simple linear regression analysis to find the population regression equation to predict the diastolic BP
-        by systolic BP.</li>
-    <li>Interpret the findings of regression analysis at 5% level of significance.</li>
+    <li>Ensure you download and save the SPSS.sav version of the dataset. Save the data into a folder that you
+        would like to save all your data and R activities in as we will return to this dataset regularly during the
+        module.</li>
+    <li>Using the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset, assess the level
+        of anti-social behaviour that the survey respondents experience in their neighbourhood by creating a summary
+        statistic, using the ‘antisocx’ variable.</li>
 </ul>
-Learning Outcomes:
+Learning Outcome:
 <br><br>
 <ul>
-    <li>Systematic understanding of the key mathematical and statistical concepts and techniques
-        which underpin
+    <li>Systematic understanding of the key mathematical and statistical concepts and techniques which underpin
         mechanisms in Data Science and AI.</li>
-    <li>Apply mathematical and statistical methods in these fields to help in the decision-making
-        process.</li>
-    <li>Critically evaluate the use of statistical analysis and the numeric interpretation of
-        results as aids in the
-        decision-making process.</li>
 </ul>
 <br>
-<h3>Solutions</h3>
-<p>Task 9.1</p>
+<h3>Solution</h3>
+<p>Task 1.2</p>
+<img src="images/data_activity_1.png" width="70%" height="auto" alt="Could not load image" />
 <code>
-    // Read file<br>
-    > library(haven)<br>
-    > Health_Data <- read_sav("Library/.../Health Data.sav")<br>
-    > View(Health_Data)<br>
-    <br>
-    // Create model<br>
-    > model = lm(dbp ~ sbp, data = Health_Data)<br>
-    <br>
-    // Summarize model<br>
-    > summary(model)<br>
-    <br>
-    Call:<br>
-    lm(formula = dbp ~ sbp, data = Health_Data)<br>
-    <br>
-    Residuals:<br>
-         Min       1Q   Median       3Q      Max <br>
-    -16.7958  -3.9366   0.1804   3.6685  19.2042 <br>
-    <br>
-    Coefficients:<br>
-                Estimate Std. Error t value Pr(>|t|)    <br>
-    (Intercept)  19.4068     2.7931   6.948 4.67e-11 ***<br>
-    sbp           0.4960     0.0216  22.961  < 2e-16 ***<br>
-    ---<br>
-    Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br>
-    <br>
-    Residual standard error: 6.264 on 208 degrees of freedom<br>
-    Multiple R-squared:  0.7171,	Adjusted R-squared:  0.7157 <br>
-    F-statistic: 527.2 on 1 and 208 DF,  p-value: < 2.2e-16<br>
-    <br>
-    // Install and load broom library to get tidy model outputs<br>
-    > install.packages("broom")<br>
-    > library(broom)<br>
-    <br>
-    // Get tidy model output<br>
-    > tidy(model)<br>
-    # A tibble: 2 × 5<br>
-      term        estimate std.error statistic  p.value<br>
-      <chr>          <dbl>     <dbl>     <dbl>    <dbl><br>
-    1 (Intercept)   19.4      2.79        6.95 4.67e-11<br>
-    2 sbp            0.496    0.0216     23.0  6.11e-59<br>
-    <br>
-    // Install and load ggplot2 library to create regression line with ggplot2<br>
-    > install.packages("ggplot2")<br>
-    > library(ggplot2)<br>
-    <br>
-    // Plot the regression line with ggplot2<br>
-    > ggplot(Health_Data, aes(x = sbp, y = dbp)) +<br>
-         geom_point() +                   <br>
-         geom_smooth(method = "lm", col = "blue") + <br>
-         labs(title = "Regression of Diastolic BP on Systolic BP",<br>
-              x = "Systolic BP (sbp)",<br>
-              y = "Diastolic BP (dbp)")<br>
-              <br>
-</code> <br>
-<img src="images/data_activity_9.1.png" width="70%" height="auto" alt="Could not load image" />
-<br>
-<p>Task 9.2</p> 
-<code>
-    /*
-    1. Model Summary:
+    > as_data = csew1314teachingopen[, 32]
 
-    The regression model used is:
-    dbp = β0 + β1 * sbp
-    
-    2. Coefficients:
-    
-    The coefficients table shows the estimated values for the intercept β0 and the slope β1:
-    Intercept β0 = 19.4068
-     - This is the estimated value of diastolic blood pressure (DBP) when systolic blood pressure (SBP) is zero. 
-     Although it's not practically meaningful to have an SBP of zero, it provides a baseline for the model. 
-    Slope β1 = 0.4960
-      - This is the estimated change in DBP for each one-unit increase in SBP. Specifically, for each additional 
-      unit of SBP, DBP is expected to increase by 0.4960 units.
-    
-    3. Statistical Significance:
-    
-    The p-value for the slope β1 is < 2e-16, which is much less than the 5% significance level (0.05). This 
-    indicates that the relationship between SBP and DBP is statistically significant.
-    The t-value for the slope β1 is 22.961, indicating strong evidence against the null hypothesis H0 
-    (which states that there is no relationship between SBP and DBP).
-    
-    4. Goodness of Fit:
-    
-    Multiple R-squared R2 = 0.7171
-     - This indicates that approximately 71.71% of the variability in DBP can be explained by SBP. This 
-     suggests a strong linear relationship between SBP and DBP.
-    Adjusted R-squared R2: 0.7157
-     - Similar to the R-squared but adjusted for the number of predictors in the model. Since there is only 
-     one predictor, it is almost the same as the R-squared.
-    
-    5. Residual Standard Error (RSE):
-    
-    Residual standard error: 6.264 on 208 degrees of freedom
-    This is the standard deviation of the residuals (errors). It gives an estimate of the typical size of 
-    the errors in the model's predictions. 
-    A lower value indicates a better fit, but the value itself should be interpreted in the context of the 
-    data's scale.
-    
-    6. F-statistic:
-    F-statistic: 527.2 on 1 and 208 DF, p-value: < 2.2e-16
-    This statistic tests the overall significance of the model. 
-    The very small p-value indicates that the model is highly significant.
-    
-    Interpretation at 5% Significance Level:
-    
-    1. Significant Relationship:
-     - There is a statistically significant relationship between systolic blood pressure (SBP) and diastolic 
-     blood pressure (DBP) at the 5% level of significance. 
-     - The p-value for the SBP coefficient is less than 0.05, leading us to reject the null hypothesis H0 
-     that β1 = 0
-    
-    2. Model Fit:
-     - The model explains a substantial proportion of the variability in DBP, as indicated by the high R-squared 
-     value R2 (71.71%).
-    
-    3. Predictive Power:
-     - For each unit increase in SBP, DBP increases by approximately 0.496 units.
-    
-    4. Reliability of Estimates:
-     - The small standard errors and high t-values suggest that our coefficient estimates are reliable
-    
-    Conclusion:
-    At a 5% level of significance, the systolic blood pressure (SBP) is a significant predictor of diastolic 
-    blood pressure (DBP). 
-    The regression model fits the data well, explaining about 71.71% of the variability in DBP. 
-    The relationship is positive, meaning as SBP increases, DBP also increases.
-    
-    The regression analysis provides strong evidence to reject the null hypothesis in favor of the 
-    alternative hypothesis. Therefore, we conclude that there is a significant relationship between 
-    systolic blood pressure and diastolic blood pressure at the 5% significance level.
-    */  
+    > table(as_data$antisocx)
+
+        -1.21526670455933     -1.00174283981323    -0.998238801956177    -0.990557968616486 
+                    320                    73                    27                    23 
+    -0.966681122779846    -0.950397610664368    -0.939043998718262    -0.916930258274078 
+                    17                    30                    27                     9 
+    ...
+    ...
+
+    > mean(as_data$antisocx)
+    [1] NA
+    > median(as_data$antisocx)
+    [1] NA
+    > max(as_data$antisocx)
+    [1] NA
+    > min(as_data$antisocx)
+    [1] NA
+    > range(as_data$antisocx)
+    [1] NA NA
+    > var(as_data$antisocx)
+    [1] NA
+    > sd(as_data$antisocx)
+    [1] NA
+    > summary(as_data$antisocx)
+    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+    -1.215  -0.788  -0.185  -0.007   0.528   4.015    6694 
 </code> <br>
+<br>
 <br><br>

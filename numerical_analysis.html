@@ -59,6 +59,65 @@
                         <h2>Data Activities</h2>
                     </header>
                     <p>
+                    <h3>Data Activity 1</h3>
+                    <p>
+                        Download the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset
+                        from its catalogue
+                        page. It is an open access dataset which the data are available to download without any
+                        registration with the UK
+                        Data Service.
+                    </p>
+                    <ul>
+                        <li>Ensure you download and save the SPSS.sav version of the dataset. Save the data into a
+                            folder that you
+                            would like to save all your data and R activities in as we will return to this dataset
+                            regularly during the
+                            module.</li>
+                        <li>Using the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching
+                            Dataset, assess the level
+                            of anti-social behaviour that the survey respondents experience in their neighbourhood by
+                            creating a summary
+                            statistic, using the ‘antisocx’ variable.</li>
+                    </ul>
+                    Learning Outcome:
+                    <br><br>
+                    <ul>
+                        <li>Systematic understanding of the key mathematical and statistical concepts and techniques
+                            which underpin
+                            mechanisms in Data Science and AI.</li>
+                    </ul>
+                    <br>
+                    <h3>Solution</h3>
+                    <p>Task 1.2</p>
+                    <img src="images/data_activity_1.png" width="40%" height="auto" alt="Could not load image" /> <br><br>
+                    <code>
+                        > as_data = csew1314teachingopen[, 32]<br>
+                        > table(as_data$antisocx)<br>                
+                            -1.21526670455933     -1.00174283981323    -0.998238801956177    -0.990557968616486 <br>
+                                        320                    73                    27                    23 <br>
+                        -0.966681122779846    -0.950397610664368    -0.939043998718262    -0.916930258274078 <br>
+                                        17                    30                    27                     9 <br>
+                        ...<br>
+                        ...<br>
+                        > mean(as_data$antisocx)<br>
+                        [1] NA<br>
+                        > median(as_data$antisocx)<br>
+                        [1] NA<br>
+                        > max(as_data$antisocx)<br>
+                        [1] NA<br>
+                        > min(as_data$antisocx)<br>
+                        [1] NA<br>
+                        > range(as_data$antisocx)<br>
+                        [1] NA NA<br>
+                        > var(as_data$antisocx)<br>
+                        [1] NA<br>
+                        > sd(as_data$antisocx)<br>
+                        [1] NA<br>
+                        > summary(as_data$antisocx)<br>
+                        Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's <br>
+                        -1.215  -0.788  -0.185  -0.007   0.528   4.015    6694 <br>
+                    </code> <br>                    
+                    <br>
                     <h3>Data Activity 2</h3>
                     Using the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset (see
                     Unit 1), perform the following activities:
@@ -81,8 +140,6 @@
                             process.</li>
                     </ul>
                     <h3>Solution</h3>
-
-
                     <code>
                         > library(haven)<br>
                         > csew1314teachingopen <- read_sav(("Library/.../csew1314teachingopen.sav")<br>
@@ -101,8 +158,6 @@
                                No <br>
                         Levels: No Yes<br>
                     </code><br>
-
-
                     <br>
                     <h3>Data Activity 3</h3>
                     <p>Using the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset
