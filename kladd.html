@@ -1,56 +1,60 @@
-<h3>Data Activity 1</h3>
-<p>
-    Download the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset from its catalogue
-    page. It is an open access dataset which the data are available to download without any registration with the UK
-    Data Service.
-</p>
+<h3>Baye’s Probability Activity</h3>
 <ul>
-    <li>Ensure you download and save the SPSS.sav version of the dataset. Save the data into a folder that you
-        would like to save all your data and R activities in as we will return to this dataset regularly during the
-        module.</li>
-    <li>Using the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset, assess the level
-        of anti-social behaviour that the survey respondents experience in their neighbourhood by creating a summary
-        statistic, using the ‘antisocx’ variable.</li>
+    <li>A fair die with faces numbered from 1 to 6 is rolled. Calculate the probability that the die lands with an even
+        number uppermost?</li>
+    <li>Coronary heart disease (CHD) is currently the most common cause of death in the UK. In 2002, of 288 332 male
+        deaths, 64 473 were from CHD, and of 318 463 female deaths, 53 003 were from CHD. Estimate the following
+        probabilityes:</li>
+    <ul>
+        <li>The probability that a randomly chosen UK man who dies in a future year will die of CHD.</li>
+        <li>The probability that a randomly chosen UK woman who dies in a future year will die of CHD.</li>
+    </ul>
+    <li>How accurate are your estimates likely to be?</li>
 </ul>
-Learning Outcome:
+Learning Outcomes:
 <br><br>
 <ul>
     <li>Systematic understanding of the key mathematical and statistical concepts and techniques which underpin
         mechanisms in Data Science and AI.</li>
+    <li>Apply mathematical and statistical methods in these fields to help in the decision-making process.</li>
+    <li>Critically evaluate the use of statistical analysis and the numeric interpretation of results as aids in the
+        decision-making process.</li>
+    <li>Critically appraise and present results of a statistical analysis to a diverse audience.</li>
 </ul>
 <br>
-<h3>Solution</h3>
-<p>Task 1.2</p>
-<img src="images/data_activity_1.png" width="70%" height="auto" alt="Could not load image" />
+<h3>Solutions</h3>
 <code>
-    > as_data = csew1314teachingopen[, 32]
-
-    > table(as_data$antisocx)
-
-        -1.21526670455933     -1.00174283981323    -0.998238801956177    -0.990557968616486 
-                    320                    73                    27                    23 
-    -0.966681122779846    -0.950397610664368    -0.939043998718262    -0.916930258274078 
-                    17                    30                    27                     9 
-    ...
-    ...
-
-    > mean(as_data$antisocx)
-    [1] NA
-    > median(as_data$antisocx)
-    [1] NA
-    > max(as_data$antisocx)
-    [1] NA
-    > min(as_data$antisocx)
-    [1] NA
-    > range(as_data$antisocx)
-    [1] NA NA
-    > var(as_data$antisocx)
-    [1] NA
-    > sd(as_data$antisocx)
-    [1] NA
-    > summary(as_data$antisocx)
-    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-    -1.215  -0.788  -0.185  -0.007   0.528   4.015    6694 
+    /*
+    To solve the problem of finding the probability that a fair die lands with an even number on , we need to follow these steps:
+     1. Identify the total number of possible outcomes when rolling a fair die
+     2. Identify the number of favorable outcomes for landing on an even number
+     3. Calculate the probability using the formula:
+        P(A) = Number of favorable outcomes / Total number of possible outcomes        
+    Calculating the probability:    
+        P(Even number) = Number of favorable outcomes / Total number of outcomes 
+        P(Even number) = 3 / 6
+        P(Even number) = 1 / 2
+    The probability that a fair die lands with an even number on top is 1/2 or 0,5
+    */
+    /*
+    Calculating the robability that a randomly chosen UK man who dies in a future year will die of CHD
+	P(Male death of CHD) = Number of male deaths from CHD / Total number of male deaths
+	P(Male death of CHD) = 64 473 / 288 332
+	P(Male death of CHD) = 0,2237
+    The probability that a randomly chosen UK man who dies in a future year will die of CHD is 0,2237, or 22,37%
+    */
+    /*
+    Calculating the probability that a randomly chosen UK woman who dies in a future year will die of CHD
+        P(Female death of CHD) = Number of female deaths from CHD / Total number of female deaths
+        P(Female death of CHD) = 53 003 / 318 463
+        P(Female death of CHD) = 0,1664
+    The probability that a randomly chosen UK woman who dies in a future year will die of CHD is 0,1664, or 16,64%
+    */
+    /*
+    How accurate are your estimates likely to be?
+    The estimates are based on large amounts of data from 2002. 
+    Assuming that the probability from CHD has not changed since 2002, these estimate will be very good.
+    */        
 </code> <br>
 <br>
 <br><br>
