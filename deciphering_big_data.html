@@ -158,52 +158,26 @@
                             </code>
                         </p>
                     </div>
-                    <div class="web_scraping_activity">
+                    <div class="data_cleaning_exercises">
                         <header>
-                            <h2>Web Scraping</h2>
+                            <h2>Data Cleaning Exercises</h2>
                         </header>
                         <p>
-                        <h3>Web Scraping Activity</h3>
+                        <h3>Exercise 1</h3>
                         <p>
-                            This program takes any word and count the number of occurrences of the word in any given
-                            URL. The output is written to a JSON file. An example of output is shown at the end of this
-                            post
-                            <br><br>
-                            <code>
-                                import requests <br>
-                                from bs4 import BeautifulSoup<br>
-                                import json<br>
-                                <br>
-                                url = 'https://en.wikipedia.org/wiki/Data_science'<br>
-                                word = 'Data Scientist'<br>
-                                <br>
-                                def scrape_and_parse(url, word):<br>
-                                response = requests.get(url)<br>
-                                soup = BeautifulSoup(response.content, 'html.parser')<br>
-                                <br>
-                                text = soup.get_text().lower()<br>
-                                word_count = text.count(word.lower())<br>
-                                <br>
-                                data = {<br>
-                                'url': url,<br>
-                                'word': word,<br>
-                                'occurences of word': word_count<br>
-                                }<br>
-                                <br>
-                                with open('word_count_data.json', 'w') as f:<br>
-                                json.dump(data, f, indent=4)<br>
-                                <br>
-                                if __name__ == '__main__':<br>
-                                scrape_and_parse(url, word)<br>
-                            </code> <br>
-                            Example output: <br><br>
-                            <code>
-                                {<br>
-                                    "url": "https://en.wikipedia.org/wiki/Data_science",<br>
-                                    "word": "Data Scientist",<br>
-                                    "occurences of word": 13<br>
-                               }<br>
-                            </code>
+                            Follow the instructions on page 150-151 of the Data Wrangling with Python textbook to
+                            manually produce data files mn.csv and mn_headers.csv.
+                        <ul>
+                            <li>Save the Clean Data</li>
+                            <li>Example Datasets:</li>
+                            <ul>
+                                <li>The file mn.csv contains raw data and uses acronyms as headers.</li>
+                                <li>Each of these acronyms represents a question or data in the survey, and more
+                                    human-readable
+                                    versions obtained from the World Bank site are provided in file mn_headers.csv.</li>
+                            </ul>
+                        </ul>
+                        Link to solution: <a href=""></a>
                         </p>
                     </div>
                 </div>
