@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Numerical Analysis</title>
+    <title>Deciphering Big Data</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -55,7 +55,7 @@
             <!-- Three -->
             <section id="three">
                 <div class="inner">
-                    <div class="unit_1">
+                    <div class="collaborative_discussion_1">
                         <header>
                             <h2>Collaborative Discussion 1 - The Data Collection Process</h2>
                         </header>
@@ -108,6 +108,102 @@
                                 https://doi.org/10.12785/IJCDS/090306
                             </li>
                         </ul>
+                        </p>
+                    </div>
+                    <div class="web_scraping_activity">
+                        <header>
+                            <h2>Web Scraping</h2>
+                        </header>
+                        <p>
+                        <h3>Web Scraping Activity</h3>
+                        <p>
+                            This program takes any word and count the number of occurrences of the word in any given
+                            URL. The output is written to a JSON file. An example of output is shown at the end of this
+                            post
+                            <br><br>
+                            <code>
+                                import requests <br>
+                                from bs4 import BeautifulSoup<br>
+                                import json<br>
+                                <br>
+                                url = 'https://en.wikipedia.org/wiki/Data_science'<br>
+                                word = 'Data Scientist'<br>
+                                <br>
+                                def scrape_and_parse(url, word):<br>
+                                response = requests.get(url)<br>
+                                soup = BeautifulSoup(response.content, 'html.parser')<br>
+                                <br>
+                                text = soup.get_text().lower()<br>
+                                word_count = text.count(word.lower())<br>
+                                <br>
+                                data = {<br>
+                                'url': url,<br>
+                                'word': word,<br>
+                                'occurences of word': word_count<br>
+                                }<br>
+                                <br>
+                                with open('word_count_data.json', 'w') as f:<br>
+                                json.dump(data, f, indent=4)<br>
+                                <br>
+                                if __name__ == '__main__':<br>
+                                scrape_and_parse(url, word)<br>
+                            </code> <br>
+                            Example output: <br><br>
+                            <code>
+                                {<br>
+                                    "url": "https://en.wikipedia.org/wiki/Data_science",<br>
+                                    "word": "Data Scientist",<br>
+                                    "occurences of word": 13<br>
+                               }<br>
+                            </code>
+                        </p>
+                    </div>
+                    <div class="web_scraping_activity">
+                        <header>
+                            <h2>Web Scraping</h2>
+                        </header>
+                        <p>
+                        <h3>Web Scraping Activity</h3>
+                        <p>
+                            This program takes any word and count the number of occurrences of the word in any given
+                            URL. The output is written to a JSON file. An example of output is shown at the end of this
+                            post
+                            <br><br>
+                            <code>
+                                import requests <br>
+                                from bs4 import BeautifulSoup<br>
+                                import json<br>
+                                <br>
+                                url = 'https://en.wikipedia.org/wiki/Data_science'<br>
+                                word = 'Data Scientist'<br>
+                                <br>
+                                def scrape_and_parse(url, word):<br>
+                                response = requests.get(url)<br>
+                                soup = BeautifulSoup(response.content, 'html.parser')<br>
+                                <br>
+                                text = soup.get_text().lower()<br>
+                                word_count = text.count(word.lower())<br>
+                                <br>
+                                data = {<br>
+                                'url': url,<br>
+                                'word': word,<br>
+                                'occurences of word': word_count<br>
+                                }<br>
+                                <br>
+                                with open('word_count_data.json', 'w') as f:<br>
+                                json.dump(data, f, indent=4)<br>
+                                <br>
+                                if __name__ == '__main__':<br>
+                                scrape_and_parse(url, word)<br>
+                            </code> <br>
+                            Example output: <br><br>
+                            <code>
+                                {<br>
+                                    "url": "https://en.wikipedia.org/wiki/Data_science",<br>
+                                    "word": "Data Scientist",<br>
+                                    "occurences of word": 13<br>
+                               }<br>
+                            </code>
                         </p>
                     </div>
                 </div>
