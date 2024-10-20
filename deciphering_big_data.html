@@ -239,8 +239,588 @@
                         </p>
                         <p>
                             Link to solution: <a
-                                href="https://github.com/dasing21/eportfolio/tree/87d118c28fec37d9ea500f4d81a8a3ecadc31958/deciphering_big_data/data_cleaning_exercises/automation_and_scaling_exercise">Click
+                                href="https://github.com/dasing21/eportfolio/tree/28931ec96e932f1c313ccc04b74df4cab83da37e/deciphering_big_data/exercises/sqlite_basics">Click
                                 here to access the solution in GitHub</a>
+                        </p>
+                    </div>
+                    <div class="normalistaion_task">
+                        <header>
+                            <h2>Normalisation</h2>
+                        </header>
+                        <h3>Normalisation Task</h3>
+                        <p>
+                            Below you will see a table with data in un-normalised form. You should normalise this data
+                            to 3rd Normal Form (3NF), showing each step of the process i.e., demonstrating 1NF, 2NF and
+                            3NF.
+                            <br><br>
+                            <img src="images/normalisation_task.png" height="60%" width="60%"
+                                alt="Could not load image">
+                            <br><br>
+                            Normalizing the Data to 3NF:
+                        <ul>
+                            <li>1NF (First Normal Form) steps:
+                            </li>
+                            <ol>
+                                <li>Eliminate Repeating Groups: Each column should contain atomic values (i.e.,
+                                    values that cannot be further divided).</li>
+                                <li>Eliminate Duplicate Rows: Remove rows with identical values in all columns.
+                                    1NF table</li>
+                            </ol>
+                            <li>1NF table:</li>
+                            <table>
+                                <tr>
+                                    <th>Student Number</th>
+                                    <th>Student Name</th>
+                                    <th>Date of Birth</th>
+                                </tr>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>Bob Baker</td>
+                                    <td>25.08.2001</td>
+                                </tr>
+                                <tr>
+                                    <td>1002</td>
+                                    <td>Sally Davies</td>
+                                    <td>02.10.1999</td>
+                                </tr>
+                                <tr>
+                                    <td>1003</td>
+                                    <td>Mark Hanmil</td>
+                                    <td>05.06.1995</td>
+                                </tr>
+                                <tr>
+                                    <td>1004</td>
+                                    <td>Anas Ali</td>
+                                    <td>03.08.1980</td>
+                                </tr>
+                                <tr>
+                                    <td>1005</td>
+                                    <td>Cheuk Yin</td>
+                                    <td>01.05.2002</td>
+                                </tr>
+                            </table>
+                        </ul>
+                        <ul>
+                            <li>2NF (Second Normal Form) step:
+                            </li>
+                            <ul>
+                                <li>Eliminate Partial Dependencies: All non-key attributes should be fully dependent on
+                                    the primary key.</li>
+                            </ul>
+                            <li>2NF tables:</li>
+                            <ul>
+                                <li>Student table:</li>
+                            </ul>
+                            <table>
+                                <tr>
+                                    <th>Student number</th>
+                                    <th>Student name</th>
+                                    <th>Date of birth</th>
+                                </tr>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>Bob Baker</td>
+                                    <td>25.08.2001</td>
+                                </tr>
+                                <tr>
+                                    <td>1002</td>
+                                    <td>Sally Davies</td>
+                                    <td>02.10.1999</td>
+                                </tr>
+                                <tr>
+                                    <td>1003</td>
+                                    <td>Mark Hanmil</td>
+                                    <td>05.06.1995</td>
+                                </tr>
+                                <tr>
+                                    <td>1004</td>
+                                    <td>Anas Ali</td>
+                                    <td>03.08.1980</td>
+                                </tr>
+                                <tr>
+                                    <td>1005</td>
+                                    <td>Cheuk Yin</td>
+                                    <td>01.05.2002</td>
+                                </tr>
+                            </table>
+                            <ul>
+                                <li>Course table:</li>
+                            </ul>
+                            <table>
+                                <tr>
+                                    <th>Course ID</th>
+                                    <th>Course name</th>
+                                    <th>Exam boards</th>
+                                </tr>
+                                <tr>
+                                    <td>CS101</td>
+                                    <td>Computer Science</td>
+                                    <td>BCS</td>
+                                </tr>
+                                <tr>
+                                    <td>MATH101</td>
+                                    <td>Maths</td>
+                                    <td>EdExcel</td>
+                                </tr>
+                                <tr>
+                                    <td>PHY101</td>
+                                    <td>Physics</td>
+                                    <td>OCR</td>
+                                </tr>
+                                <tr>
+                                    <td>BIO101</td>
+                                    <td>Biology</td>
+                                    <td>WJEC</td>
+                                </tr>
+                                <tr>
+                                    <td>MUS101</td>
+                                    <td>Music</td>
+                                    <td>AQA</td>
+                                </tr>
+                            </table>
+                            <ul>
+                                <li>StudentCourse table:</li>
+                            </ul>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Student Number</th>
+                                        <th>Course ID</th>
+                                        <th>Exam Score</th>
+                                        <th>Support</th>
+                                        <th>Teacher Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1001</td>
+                                        <td>CS101</td>
+                                        <td>78</td>
+                                        <td>No</td>
+                                        <td>Mr. Jones</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1001</td>
+                                        <td>MATH101</td>
+                                        <td>78</td>
+                                        <td>No</td>
+                                        <td>Ms. Parker</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1001</td>
+                                        <td>PHY101</td>
+                                        <td>78</td>
+                                        <td>No</td>
+                                        <td>Mr. Peters</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1002</td>
+                                        <td>MATH101</td>
+                                        <td>55</td>
+                                        <td>Yes</td>
+                                        <td>Ms. Parker</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1002</td>
+                                        <td>BIO101</td>
+                                        <td>55</td>
+                                        <td>Yes</td>
+                                        <td>Mrs. Patel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1002</td>
+                                        <td>MUS101</td>
+                                        <td>55</td>
+                                        <td>Yes</td>
+                                        <td>Ms. Daniels</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1003</td>
+                                        <td>CS101</td>
+                                        <td>90</td>
+                                        <td>No</td>
+                                        <td>Mr. Jones</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1003</td>
+                                        <td>MATH101</td>
+                                        <td>90</td>
+                                        <td>No</td>
+                                        <td>Ms. Parker</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1003</td>
+                                        <td>PHY101</td>
+                                        <td>90</td>
+                                        <td>No</td>
+                                        <td>Mr. Peters</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1004</td>
+                                        <td>MATH101</td>
+                                        <td>70</td>
+                                        <td>No</td>
+                                        <td>Ms. Parker</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1004</td>
+                                        <td>PHY101</td>
+                                        <td>70</td>
+                                        <td>No</td>
+                                        <td>Mr. Peters</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1004</td>
+                                        <td>BIO101</td>
+                                        <td>70</td>
+                                        <td>No</td>
+                                        <td>Mrs. Patel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1005</td>
+                                        <td>CS101</td>
+                                        <td>45</td>
+                                        <td>Yes</td>
+                                        <td>Mr. Jones</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1005</td>
+                                        <td>MATH101</td>
+                                        <td>45</td>
+                                        <td>Yes</td>
+                                        <td>Ms. Parker</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1005</td>
+                                        <td>MUS101</td>
+                                        <td>45</td>
+                                        <td>Yes</td>
+                                        <td>Ms. Daniels</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <li>3NF (Third Normal Form) step:</li>
+                            <ul>
+                                <li>Eliminate Transitive Dependencies: If there's a transitive dependency (A -> B -> C),
+                                    where A is the primary key and B is a non-key attribute, remove C from the table
+                                    containing A and B.</li>
+                            </ul>
+                            <li>3NF tables:</li>
+                            <ul>
+                                <li>Student table:</li>
+                            </ul>
+                            <table>
+                                <tr>
+                                    <th>Student number</th>
+                                    <th>Student name</th>
+                                    <th>Date of birth</th>
+                                </tr>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>Bob Baker</td>
+                                    <td>25.08.2001</td>
+                                </tr>
+                                <tr>
+                                    <td>1002</td>
+                                    <td>Sally Davies</td>
+                                    <td>02.10.1999</td>
+                                </tr>
+                                <tr>
+                                    <td>1003</td>
+                                    <td>Mark Hanmil</td>
+                                    <td>05.06.1995</td>
+                                </tr>
+                                <tr>
+                                    <td>1004</td>
+                                    <td>Anas Ali</td>
+                                    <td>03.08.1980</td>
+                                </tr>
+                                <tr>
+                                    <td>1005</td>
+                                    <td>Cheuk Yin</td>
+                                    <td>01.05.2002</td>
+                                </tr>
+                            </table>
+                            <ul>
+                                <li>Course table:</li>
+                            </ul>
+                            <table>
+                                <tr>
+                                    <th>Course ID</th>
+                                    <th>Course name</th>
+                                    <th>Exam boards</th>
+                                </tr>
+                                <tr>
+                                    <td>CS101</td>
+                                    <td>Computer Science</td>
+                                    <td>BCS</td>
+                                </tr>
+                                <tr>
+                                    <td>MATH101</td>
+                                    <td>Maths</td>
+                                    <td>EdExcel</td>
+                                </tr>
+                                <tr>
+                                    <td>PHY101</td>
+                                    <td>Physics</td>
+                                    <td>OCR</td>
+                                </tr>
+                                <tr>
+                                    <td>BIO101</td>
+                                    <td>Biology</td>
+                                    <td>WJEC</td>
+                                </tr>
+                                <tr>
+                                    <td>MUS101</td>
+                                    <td>Music</td>
+                                    <td>AQA</td>
+                                </tr>
+                            </table>
+                            <ul>
+                                <li>StudentCourse table:</li>
+                            </ul>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Student Number</th>
+                                        <th>Course ID</th>
+                                        <th>Exam Score</th>
+                                        <th>Support</th>
+                                        <th>Teacher Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1001</td>
+                                        <td>CS101</td>
+                                        <td>78</td>
+                                        <td>No</td>
+                                        <td>Mr. Jones</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1001</td>
+                                        <td>MATH101</td>
+                                        <td>78</td>
+                                        <td>No</td>
+                                        <td>Ms. Parker</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1001</td>
+                                        <td>PHY101</td>
+                                        <td>78</td>
+                                        <td>No</td>
+                                        <td>Mr. Peters</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1002</td>
+                                        <td>MATH101</td>
+                                        <td>55</td>
+                                        <td>Yes</td>
+                                        <td>Ms. Parker</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1002</td>
+                                        <td>BIO101</td>
+                                        <td>55</td>
+                                        <td>Yes</td>
+                                        <td>Mrs. Patel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1002</td>
+                                        <td>MUS101</td>
+                                        <td>55</td>
+                                        <td>Yes</td>
+                                        <td>Ms. Daniels</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1003</td>
+                                        <td>CS101</td>
+                                        <td>90</td>
+                                        <td>No</td>
+                                        <td>Mr. Jones</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1003</td>
+                                        <td>MATH101</td>
+                                        <td>90</td>
+                                        <td>No</td>
+                                        <td>Ms. Parker</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1003</td>
+                                        <td>PHY101</td>
+                                        <td>90</td>
+                                        <td>No</td>
+                                        <td>Mr. Peters</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1004</td>
+                                        <td>MATH101</td>
+                                        <td>70</td>
+                                        <td>No</td>
+                                        <td>Ms. Parker</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1004</td>
+                                        <td>PHY101</td>
+                                        <td>70</td>
+                                        <td>No</td>
+                                        <td>Mr. Peters</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1004</td>
+                                        <td>BIO101</td>
+                                        <td>70</td>
+                                        <td>No</td>
+                                        <td>Mrs. Patel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1005</td>
+                                        <td>CS101</td>
+                                        <td>45</td>
+                                        <td>Yes</td>
+                                        <td>Mr. Jones</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1005</td>
+                                        <td>MATH101</td>
+                                        <td>45</td>
+                                        <td>Yes</td>
+                                        <td>Ms. Parker</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1005</td>
+                                        <td>MUS101</td>
+                                        <td>45</td>
+                                        <td>Yes</td>
+                                        <td>Ms. Daniels</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <ul>
+                                <li>Teacher table:</li>
+                            </ul>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Teacher ID</th>
+                                        <th>Teacher Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>T001</td>
+                                        <td>Mr. Jones</td>
+                                    </tr>
+                                    <tr>
+                                        <td>T002</td>
+                                        <td>Ms. Parker</td>
+                                    </tr>
+                                    <tr>
+                                        <td>T003</td>
+                                        <td>Mr. Peters</td>
+                                    </tr>
+                                    <tr>
+                                        <td>T004</td>
+                                        <td>Mrs. Patel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>T005</td>
+                                        <td>Ms. Daniels</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <ul>
+                                <li>StudentCourseTeacher table:</li>
+                            </ul>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Student Number</th>
+                                        <th>Course ID</th>
+                                        <th>Teacher ID</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1001</td>
+                                        <td>CS101</td>
+                                        <td>T001</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1001</td>
+                                        <td>MATH101</td>
+                                        <td>T002</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1001</td>
+                                        <td>PHY101</td>
+                                        <td>T003</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1002</td>
+                                        <td>MATH101</td>
+                                        <td>T002</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1002</td>
+                                        <td>BIO101</td>
+                                        <td>T004</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1002</td>
+                                        <td>MUS101</td>
+                                        <td>T005</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1003</td>
+                                        <td>CS101</td>
+                                        <td>T001</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1003</td>
+                                        <td>MATH101</td>
+                                        <td>T002</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1003</td>
+                                        <td>PHY101</td>
+                                        <td>T003</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1004</td>
+                                        <td>MATH101</td>
+                                        <td>T002</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1004</td>
+                                        <td>PHY101</td>
+                                        <td>T003</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1004</td>
+                                        <td>BIO101</td>
+                                        <td>T004</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1005</td>
+                                        <td>CS101</td>
+                                        <td>T001</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1005</td>
+                                        <td>MATH101</td>
+                                        <td>T002</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1005</td>
+                                        <td>MUS101</td>
+                                        <td>T005</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </ul>
+                        In this 3NF form, the data is normalized, eliminating redundancy and ensuring data integrity.
                         </p>
                     </div>
                 </div>
