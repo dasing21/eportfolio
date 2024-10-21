@@ -814,7 +814,7 @@
                             Protection Regulation (GDPR) and compares them to the regulations in Norway, specifically
                             the Personal Data Act (PDA) of 2018.
                             <br><br>
-                            GDPR Standards:
+                            <b>GDPR Standards:</b>
                             <br><br>
                             The GDPR doesn't prescribe specific technical measures but emphasizes "appropriate security"
                             based on factors like the type of data, processing risks, and the industry (European
@@ -828,8 +828,8 @@
                                 Commission, 2018).</li>
                             <li>Data breach notification: Reporting breaches to authorities and affected individuals
                                 within specified timelines (European Commission, 2018).</li>
-                            <br><br>
-                            Norwegian Similarities and Differences:
+                            <br>
+                            <b>Norwegian Similarities and Differences:</b>
                             <br><br>
                             Norway's PDA largely mirrors the GDPR's security principle. Section 13 outlines the
                             "security and confidentiality" requirements, emphasizing "appropriate technical and
@@ -848,6 +848,7 @@
                             security measures that are consistent with the most stringent requirements (Lovdata, 2018)
                             <br><br>
                             <b>References:</b>
+                            <br> <br>
                         <ul>
                             <li>European Commission. (2018, April 10). GDPR Explained. (https://gdpr-info.eu/) (Accessed
                                 12.09.2024)
@@ -893,9 +894,11 @@
                                 <li>If the API doesn't properly sanitize user input, attackers could inject malicious
                                     code into queries, leading to data manipulation or unauthorized access.</li>
                             </ul>
-                        </ol> <br>
-                        (Google Cloud, N.D.) <br>
-                        <b>Security Requirements Specification</b> <br>
+                        </ol>
+                        (Google Cloud, N.D.)
+                        <br><br> <br>
+                        <b>Security Requirements Specification</b> 
+                        <br> <br>
                         To mitigate these risks, the following security requirements should be implemented:
                         <ol>
                             <li>Authentication and Authorization:</li>
@@ -945,167 +948,21 @@
                                 <li>Security Training: Provide security training to developers and staff (National
                                     Institute of Standards and Technology, 2021)</li>
                             </ul>
-                        </ol> <br>
+                        </ol>
                         By implementing these security requirements, you can significantly reduce the risk of data
                         breaches and unauthorized access to your API, ensuring that your data sharing, scraping, and
-                        connectivity between Python and file formats are secure. <br>
+                        connectivity between Python and file formats are secure.
+                        <br> <br> <br>
                         <b>User Stories for Google Cloud Storage API Security Requirements</b>
+                        <br> <br>
                         By following a series of guidelines (Rexhoff, M., N. D.) and exploring a real-life example
-                        (Johnson, E., 2018), I have created the following user stories: <br> <br>
-                        Authentication and Authorization:
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>User Story</th>
-                                    <th>Acceptance Criteria</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>As a developer, I want to use OAuth 2.0 to securely authenticate my application
-                                        with the Google Cloud Storage API, in order to ensure only authorized users can
-                                        access my data.</td>
-                                    <td>The application successfully obtains an OAuth 2.0 access token from the Google
-                                        Cloud Platform.</td>
-                                </tr>
-                                <tr>
-                                    <td>As a security administrator, I want to use IAM roles to assign granular
-                                        permissions to different users and services, in order to ensure that only
-                                        authorized individuals have access to specific data.</td>
-                                    <td>IAM roles are created and assigned to users and services based on their required
-                                        permissions.</td>
-                                </tr>
-                            </tbody>
-                        </table> <br>
-                        Data Envryption:
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>User Story</th>
-                                    <th>Acceptance Criteria</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>As a data owner, I want to ensure that my data stored in Google Cloud Storage to
-                                        be encrypted at rest using CMECK, In order to ensure that it is protected even
-                                        if the storage infrastructure is compromised.</td>
-                                    <td>CMECK is configured for the Google Cloud Storage bucket containing the data.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>As a user, I want to transmit my data securely over HTTPS between my application
-                                        and the Google Cloud Storage API In order to prevent eavesdropping.</td>
-                                    <td>All data transfers between the application and the API use HTTPS.</td>
-                                </tr>
-                            </tbody>
-                        </table> <br>
-                        Input Validation:
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>User Story</th>
-                                    <th>Acceptance Criteria</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>As a developer, I want to validate and sanitize all user input, In order to
-                                        prevent injection attacks and ensure the integrity of my data.</td>
-                                    <td>All user input is validated for correct format and content.</td>
-                                </tr>
-                                <tr>
-                                    <td>As a security administrator, I want to implement whitelisting rules to restrict
-                                        the allowed characters and formats for user input, In order to further reduce
-                                        the risk of injection attacks.</td>
-                                    <td>Whitelisting rules are defined for all user input fields.</td>
-                                </tr>
-                            </tbody>
-                        </table> <br>
-                        XSS Prevention:
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>User Story</th>
-                                    <th>Acceptance Criteria</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>As a user, I want to be protected from XSS attacks by ensuring that the API
-                                        properly encodes output and implements CSP, In order to restrict the resources
-                                        that can be loaded on web pages.</td>
-                                    <td>All output is properly encoded to prevent XSS attacks.</td>
-                                </tr>
-                            </tbody>
-                        </table> <br>
-                        Rate Limiting:
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>User Story</th>
-                                    <th>Acceptance Criteria</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>As a developer, I want to be able to set rate limits for my API usage, In order
-                                        to prevent abuse and ensure fair access for other users.</td>
-                                    <td>Rate limits can be configured for different API endpoints or users.</td>
-                                </tr>
-                            </tbody>
-                        </table> <br>
-                        Logging and Monitoring:
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>User Story</th>
-                                    <th>Acceptance Criteria</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>As a security administrator, I want to enable audit logging, In order to track
-                                        API usage and identify potential security incidents.</td>
-                                    <td>Audit logging is enabled for the Google Cloud Storage API.</td>
-                                </tr>
-                                <tr>
-                                    <td>As a developer, I want to be able to monitor the API for anomalies and
-                                        suspicious activity, In order to detect and respond to security threats.</td>
-                                    <td>The developer can use monitoring tools to track API usage and performance.</td>
-                                </tr>
-                            </tbody>
-                        </table> <br>
-                        Security Best Practices:
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>User Story</th>
-                                    <th>Acceptance Criteria</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>As a developer, I want to keep the Google Cloud Storage API and its dependencies
-                                        up-to-date with the latest security patches, In order to mitigate known
-                                        vulnerabilities.</td>
-                                    <td>The API and its dependencies are regularly updated with the latest security
-                                        patches.</td>
-                                </tr>
-                                <tr>
-                                    <td>As a security administrator, I want to conduct regular penetration testing, In
-                                        order to identify potential security weaknesses in my API implementation.</td>
-                                    <td>Penetration testing is conducted regularly by qualified security professionals.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>As a team leader, I want to ensure that all developers receive adequate security
-                                        training In order to understand and implement best practices.</td>
-                                    <td>All developers receive security training that covers relevant topics, such as
-                                        authentication, authorization, data encryption, and input validation.</td>
-                                </tr>
-                            </tbody>
-                        </table> <br>
+                        (Johnson, E., 2018), I have created the following user stories:
+                        <br><br>
+                        <a
+                            href="https://github.com/dasing21/eportfolio/blob/18be3dbd3f564427987e527ca34b5a103a998044/deciphering_big_data/exercises/api_security_requirements_exercise/user_stories.pdf">Click
+                            here to access the user stories in GitHub.
+                        </a>
+                        <br><br>
                         <b>References:</b>
                         <ul>
                             <li>Google Cloud (N.D.) Google Cloud Documentation. Available at:
@@ -1139,9 +996,6 @@
                                 https://github.com/OWASP/user-security-stories/blob/master/user-security-stories.md
                                 (Accessed: 19 September 2014)</li>
                         </ul>
-
-
-
                         </p>
                     </div>
                 </div>
