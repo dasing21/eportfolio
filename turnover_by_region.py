@@ -95,12 +95,6 @@ y_range = [df_melted["Turnover (NOK million)"].min(), df_melted["Turnover (NOK m
 fig.update_layout(
     autosize=True,
     title={
-        'text': "Turnover by Region (2020-2022)",
-        'y': 0.93,  # Adjusted to give more space above
-        'x': 0.5,
-        'xanchor': 'center',
-        'yanchor': 'top',
-        'font': {'size': 16}
     },
     xaxis_title="Year",
     yaxis_title="Turnover (NOK million)",
@@ -151,4 +145,4 @@ fig.update_yaxes(
 )
 
 # Save as responsive HTML
-fig.write_html("revenue_plot.html", full_html=True, include_plotlyjs='cdn', config={"responsive": True})
+fig.write_html("turnover_by_region.html", full_html=True, include_plotlyjs='cdn', config={"responsive": True})
