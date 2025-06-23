@@ -75,6 +75,18 @@
                                 <tr>
                                     <td><a href="#section4">4. Perceptron Activities</a></td>
                                 </tr>
+                                <tr>
+                                    <td><a href="#section5">5. Gradient Cost Function</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#section6">6. CNN Model Activity</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#section7">7. Summary of Collaborative Discussion 2</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#section8">8. Model Performance Measurement</a></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -84,9 +96,48 @@
                             </h2>
                         </header>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptatem, porro doloremque
-                            repellendus optio necessitatibus, ratione quibusdam nobis facilis deserunt sint dolorem
-                            vitae deleniti repellat quasi fugit, fuga eum! Ad.
+                            Thank you, Andrea and Deane, for your thoughtful responses and for expanding the discussion
+                            in such meaningful ways.
+                            <br><br>
+                            In my original post, I focused on how Industry 4.0 technologies—particularly AI, ML, IoT,
+                            and big data analytics—are transforming the software testing and QA landscape by increasing
+                            automation, improving accuracy, and supporting continuous integration (Antony et al., 2022a;
+                            Alzahrani et al., 2021). From my experience in this field, these innovations are already
+                            making a tangible difference in reducing manual workload and speeding up delivery without
+                            compromising quality.
+                            <br><br>
+                            Andrea’s point about DevSecOps is especially relevant. The integration of security into
+                            every stage of the development and QA pipeline is no longer optional. As Mack (2023)
+                            describes, DevSecOps bridges development, QA, operations, and cybersecurity—making it
+                            crucial in today’s threat-heavy environment. I agree that this offers a strong link between
+                            Industry 4.0 and the emerging concepts in Industry 5.0, especially the emphasis on ethical
+                            AI, privacy, and sustainable human-machine collaboration.
+                            <br><br>
+                            Deane also raised important points, particularly around the resource constraints that some
+                            regions, like South Africa, may face when adopting these technologies. His emphasis on the
+                            risks associated with expanded IoT usage highlights how important cybersecurity and ethical
+                            frameworks will become as systems grow more interconnected (Metcalf, 2024; Schwab, 2016).
+                            <br><br>
+                            Overall, what stands out to me is how important it is to balance technological progress with
+                            human values. Industry 4.0 has brought incredible advancements, but integrating the
+                            human-centric principles of Industry 5.0—such as ethics, transparency, and privacy—will be
+                            key to ensuring we build not just faster, but also more responsible and secure systems.
+                            <br><br>
+                            <b>References</b>
+                        <ul>
+                            <li>Alzahrani, B. et al. (2021) ‘How ready is higher education for Quality 4.0
+                                transformation according to the LNS research framework?’, Sustainability, 13(9), p.
+                                5169.</li>
+                            <li>Antony, J. et al. (2022a) ‘Quality 4.0 conceptualisation and theoretical understanding:
+                                A global exploratory qualitative study’, TQM Journal, 34(5), pp. 1169–1188.</li>
+                            <li>Antony, J. et al. (2022b) ‘Quality 4.0 and its impact on organizational performance: An
+                                integrative viewpoint’, TQM Journal, 34(6), pp. 2069–2084.</li>
+                            <li>Mack, S.D. (2023) The DevSecOps Playbook: Deliver Continuous Security at Speed. 1st edn.
+                                Newark: Wiley.</li>
+                            <li>Metcalf, G.S. (2024) ‘Technological forecasting for human-centred innovation’,
+                                Technological Forecasting, 41(1).</li>
+                            <li>Schwab, K. (2016) The Fourth Industrial Revolution. Geneva: World Economic Forum.</li>
+                        </ul>
                         </p>
                         <br>
                     </div>
@@ -334,7 +385,6 @@
                             /* optional: remove default border */
                         }
                     </style>
-
                     <div class="perceptron_activities">
                         <header>
                             <h2 id="section4">4. Perceptron Activities</h2>
@@ -361,32 +411,187 @@
                             </object>
                         </div>
                     </div>
-                    <!-- <div class="perceptron_activities">
+                    <div class="gradient_cost_function">
                         <header>
-                            <h2 id="section2">4. Perceptron Activities</h2>
+                            <h2 id="section5">5. Gradient Cost Function</h2>
                         </header>
-                        <div id="wrapper" style="width:100%; height:1100px;">
-                            <h3>Exercise 1: Simple Perceptron</h3>
-                            <object type="text/html"
-                                data="machine_learning/perceptron_activities/ex1_simple_perceptron.html"
-                                style="width:100%; height:5100px;">
-                            </object>
-                        </div> <br><br><br> 
-                        <div id="wrapper" style="width:100%; height:1810px;">
-                            <h3>Exercise 2: Perceptron and Operator</h3>
-                            <object type="text/html"
-                                data="machine_learning/perceptron_activities/ex2_perceptron_and_operator.html"
-                                style="width:100%; height:5100px;">
-                            </object>
-                        </div> <br><br><br>
-                        <div id="wrapper" style="width:100%; height:1920px;">
-                            <h3>Exercise 3: Multi-Layer Perceptron</h3>
-                            <object type="text/html"
-                                data="machine_learning/perceptron_activities/ex3_multi-layer_perceptron.html"
-                                style="width:100%; height:5100px;">
-                            </object>
-                        </div> <br><br><br>
-                    </div> <br> <br> <br> -->
+                        <p>
+                            Read the <a
+                                href="https://www.kdnuggets.com/2017/10/neural-network-foundations-explained-gradient-descent.html">Mayo,
+                                2017 article</a>
+                            and then run the tutorial: <a
+                                href="https://www.my-course.co.uk/pluginfile.php/1372813/mod_page/content/17/Unit08%20Ex4%20gradient_descent_cost_function.ipynb">gradient_descent_cost_function.ipynb</a>
+                            . Change the iteration number
+                            and learning_rate and observe how cost decreases.
+                        </p>
+                        <h3>Solution</h3>
+                        <p>
+                            The notebook contains a simple implementation of gradient descent for linear regression.
+                            Here’s a breakdown of how changing the iterations and learning_rate parameters affects the
+                            cost decrease:
+                            <br><br>
+                            <b>1. Iterations</b>
+                        <ul>
+                            <li>Higher iterations allow more updates to the model parameters (m_curr, b_curr).</li>
+                            <li>This typically leads to a lower cost, assuming the learning rate is reasonable.</li>
+                            <li>If iterations are too low, the algorithm may stop before reaching minimum cost.</li>
+                        </ul>
+                        Example:
+                        <ul>
+                            <li>Iterations = 10: Likely not enough to fully converge.</li>
+                            <li>Iterations = 500: Gives the algorithm time to converge more completely.</li>
+                        </ul>
+                        <b>2. Learning rate (step size)</b> <br><br>
+                        <ul>
+                            <li>Controls how big a step we take in each iteration toward minimizing cost.</li>
+                            <li>A small learning rate (e.g., 0.001) may converge slowly, requiring many iterations.</li>
+                            <li>A large learning rate (e.g., 1.0) may overshoot the minimum, possibly causing
+                                divergence.</li>
+                        </ul>
+                        Optimal behavior:
+                        <ul>
+                            <li>A moderate learning rate (e.g., 0.01 to 0.1) often yields a balance between speed and
+                                stability.</li>
+                        </ul>
+                        <b>Summary:</b>
+                        <br><br>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Effect on Cost Decrease</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>More Iterations</td>
+                                    <td>Lower cost (more chances to update)</td>
+                                </tr>
+                                <tr>
+                                    <td>Higher Learning Rate</td>
+                                    <td>Faster decrease if not too high</td>
+                                </tr>
+                                <tr>
+                                    <td>Too High LR</td>
+                                    <td>May cause cost to oscillate or diverge</td>
+                                </tr>
+                                <tr>
+                                    <td>Too Low LR</td>
+                                    <td>Very slow cost decrease</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </p>
+
+                        <br>
+                    </div>
+                    <div class="cnn_model_activity">
+                        <header>
+                            <h2 id="section6">6. CNN Model Activity</h2>
+                        </header>
+                        <p>
+                            Read the <a href="https://www.bbc.com/news/business-48842750">Wall (2019) article</a> and
+                            record your thoughts on the ethical and social implications
+                            of this CNN technology.
+                            <br>
+                            Run this CNN model - <a
+                                href="https://www.my-course.co.uk/pluginfile.php/1372822/mod_page/content/2/Unit09%20Ex1%20Convolutional%20Neural%20Networks%20%28CNN%29%20-%20Object%20Recognition.ipynb">Convolutional
+                                Neural Networks (CNN) - Object Recognition.ipynb</a> - and
+                            review different sections of the algorithm. Change the input image for prediction by
+                            changing the value of this variable - plt.imshow(x_test[16] - from 16 to value of your
+                            choice (1-15) and see whether the model predicts correctly.
+                        </p>
+                        <h3>Solution 1/2</h3>
+                        <p>
+                            I find the use of CNN-based facial recognition technology deeply concerning, especially when
+                            looking at its ethical and social implications. The fact that these systems have much higher
+                            error rates for people with darker skin, particularly women, shows that they’re far from
+                            neutral or fair. In some cases, like in the UK, trials by the police led to about four false
+                            matches for every correct one (BBC News, 2019). That’s not just a technical flaw — it means
+                            real people are being wrongly targeted, questioned, and possibly even criminalised.
+                            <br><br>
+                            What worries me even more is the lack of transparency. These systems are often black boxes,
+                            and when someone is misidentified, there’s usually no clear way to challenge or understand
+                            the decision. Meanwhile, companies like Amazon are still pushing these tools to law
+                            enforcement, despite internal and external concerns (BBC News, 2019). If this continues
+                            unchecked, we risk normalising surveillance and discrimination under the guise of security
+                            or convenience.
+                            <br><br>
+                            Until these tools are thoroughly tested for bias and there are strict rules around their
+                            use, I don’t think they should be deployed in high-stakes areas like policing or the
+                            military. The risks are just too great without proper oversight.
+                            <br><br>
+                            <b>References</b>
+                        <ul>
+                            <li>BBC News (2019) ‘Biased and wrong? Facial recognition tech in the dock’, 8 July.
+                                Available at: https://www.bbc.com/news/business-48842750 (Accessed: 5 June 2025).</li>
+                        </ul>
+                        </p>
+                        <h3>Solution 2/2</h3>
+                        <object type="text/html" data="machine_learning/cnn_model_activity/cnn_model_activity.html"
+                            style="width:100%; height:450px;">
+                        </object>
+                        <br>
+                    </div> <br><br>
+                    <div class="collaborative_discussion_2">
+                        <header>
+                            <h2 id="section1">7. Summary of Collaborative Discussion 2
+                            </h2>
+                        </header>
+                        <p>
+
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ipsa itaque officiis
+                            doloribus. Incidunt nisi tempora ea adipisci illo at fugit reprehenderit asperiores,
+                            repellendus corrupti consectetur, velit amet fuga quae.
+                            <br><br>
+                            <b>References</b>
+                        <ul>
+                            <li>Example</li>
+                        </ul>
+                        </p>
+                        <br>
+                    </div>
+                    <div class="model_performance_measurement">
+                        <header>
+                            <h2 id="section1">8. Model Performance Measurement
+                            </h2>
+                        </header>
+                        <p>
+                            Run the <a
+                                href="https://www.my-course.co.uk/pluginfile.php/1372835/mod_page/content/3/Unit11_model_Performance_Measurement.ipynb">model_Performance_Measurement.ipnyb</a>
+                            file and change different parameters and observe its impact on AUC and R2 error.
+                        </p>
+                        <br>
+                        <h3>Solution</h3>
+                        <p>
+                            The notebook has executed successfully. Here's a brief summary of the key output values
+                            observed:
+                            <br>
+                            <b>Model Performance Metrics:</b>
+                        <ul>
+                            <li>
+                                Confusion Matrix (tuple format): (0, 2, 1, 1)
+                            </li>
+                            <li>F1 Scores:</li>
+                            <ul>
+                                <li>Macro F1: 0.267</li>
+                                <li>Micro F1: 0.333</li>
+                                <li>Weighted F1: 0.267</li>
+                                <li>F1 (no average): [0.8, 0.0, 0.0] and [0.667, 1.0, 0.667] (may be from two different
+                                    models or steps)</li>
+                            </ul>
+                            <li>AUC: 0.5</li>
+                            <li>R² Score: 0.222</li>
+                        </ul>
+                        These indicate a model with:
+                        <ul>
+                            <li>Poor AUC (0.5 suggests random prediction)</li>
+                            <li>Low R² (very limited predictive power)</li>
+                            <li>Imbalanced or misclassified outputs (based on 0 F1 scores)</li>
+                        </ul>
+                        </p>
+                    </div>
+
             </section>
         </div>
         <!-- Contact -->
